@@ -63,7 +63,6 @@
     html, body { overflow-x: hidden; max-width: 100%; }
     html { scroll-behavior:smooth; }
     body { font-family:'Jost',sans-serif; background:var(--cream); color:var(--text); overflow-x:hidden; }
-
     nav {
       position:fixed; top:0; left:0; right:0; z-index:100;
       padding:8px 5%; display:flex; align-items:center; justify-content:space-between;
@@ -89,7 +88,6 @@
     }
     .nav-cta:hover { background:var(--gold-dark) !important; }
     .nav-cta::after { display:none !important; }
-
     .hero {
       min-height:100vh; display:grid; grid-template-columns:1fr 1fr; padding-top:104px;
     }
@@ -158,7 +156,6 @@
     .section-label { font-size:0.68rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:12px; }
     .section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(2.2rem,4vw,3.5rem); font-weight:300; line-height:1.15; color:var(--dark); margin-bottom:24px; }
     .section-title span { color:var(--sage-dark); font-style:italic; }
-
     #sobre { background:var(--cream); display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
     .sobre-text p { font-size:1rem; font-weight:300; line-height:1.9; color:var(--text-light); margin-bottom:18px; }
     .sobre-highlight { background:var(--sage); color:white; padding:28px 32px; border-radius:4px; margin-top:24px; }
@@ -172,7 +169,6 @@
     .info-card:hover { transform:translateX(4px); box-shadow:0 4px 28px rgba(0,0,0,0.1); }
     .info-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.25rem; font-weight:400; color:var(--dark); margin-bottom:6px; }
     .info-card p { font-size:0.84rem; color:var(--text-light); font-weight:300; line-height:1.6; }
-
     #areas { background:var(--cream-dark); text-align:center; }
     #areas .section-title { color:var(--dark); }
     #areas .section-title span { color:var(--sage-dark); }
@@ -194,7 +190,6 @@
     .area-icon { font-size:2rem; margin-bottom:16px; display:block; }
     .area-card h3 { font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:400; color:var(--sage-dark); margin-bottom:10px; }
     .area-card p { font-size:0.84rem; color:var(--text-light); font-weight:300; line-height:1.7; }
-
     #planos { background:var(--cream-dark); text-align:center; }
     .planos-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:22px; margin-top:52px; }
     .plano-card { background:white; border-radius:4px; padding:38px 26px; box-shadow:0 2px 18px rgba(0,0,0,0.06); transition:all 0.3s; position:relative; overflow:hidden; }
@@ -221,7 +216,6 @@
     .plano-card.destaque .plano-lista li::before { color:var(--gold-light); }
     .pagamento-info { margin-top:44px; padding:22px 30px; background:white; border-radius:4px; display:inline-flex; align-items:center; gap:14px; font-size:0.88rem; color:var(--text-light); font-weight:300; }
     .pagamento-info span { font-size:1.4rem; }
-
     #faltas { background:white; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
     .faltas-list { list-style:none; margin-top:28px; }
     .faltas-list li { display:flex; gap:16px; padding:15px 0; border-bottom:1px solid var(--cream-dark); font-size:0.88rem; font-weight:300; line-height:1.6; color:var(--text); }
@@ -231,7 +225,6 @@
     .termos-box p { font-size:0.9rem; font-weight:300; line-height:1.7; color:var(--text-light); margin-bottom:24px; }
     .btn-termos { display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:white; text-decoration:none; padding:13px 28px; font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; transition:all 0.3s; }
     .btn-termos:hover { background:var(--gold-dark); transform:translateY(-2px); }
-
     #localizacao { background:var(--sage); padding:0; }
     .localizacao-inner { display:grid; grid-template-columns:1fr 1fr; }
     .localizacao-info { padding:80px 6% 80px 8%; display:flex; flex-direction:column; justify-content:center; }
@@ -245,19 +238,15 @@
     .contato-item:hover .contato-icon { background:rgba(255,255,255,0.18); }
     .localizacao-map { position:relative; min-height:450px; }
     .localizacao-map iframe { width:100%; height:100%; border:none; display:block; min-height:450px; filter:saturate(0.7) contrast(1.05); }
-
     footer { background:var(--dark); padding:38px 8%; display:flex; align-items:center; justify-content:space-between; gap:24px; flex-wrap:wrap; }
-    footer img { height:38px; opacity:0.92; }
+    footer img { height:56px; opacity:0.92; }
     .footer-text { font-size:0.74rem; color:rgba(255,255,255,0.38); font-weight:300; letter-spacing:0.08em; text-align:center; }
     .footer-links { display:flex; gap:24px; }
     .footer-links a { color:rgba(255,255,255,0.45); text-decoration:none; font-size:0.74rem; letter-spacing:0.08em; transition:color 0.3s; }
     .footer-links a:hover { color:var(--gold-light); }
-
     .whatsapp-float { position:fixed; bottom:28px; right:28px; z-index:999; width:58px; height:58px; background:#25D366; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 24px rgba(37,211,102,0.5); text-decoration:none; transition:all 0.3s; }
     .whatsapp-float:hover { transform:scale(1.12) rotate(-5deg); box-shadow:0 8px 36px rgba(37,211,102,0.6); }
     .whatsapp-float svg { width:30px; height:30px; fill:white; }
-
-    /* ── HAMBURGER ICON ── */
     .hamburger {
       display:none; flex-direction:column; gap:5px; cursor:pointer;
       padding:10px; z-index:200; position:relative;
@@ -266,53 +255,23 @@
     .hamburger.active span:nth-child(1) { transform:translateY(7px) rotate(45deg); }
     .hamburger.active span:nth-child(2) { opacity:0; }
     .hamburger.active span:nth-child(3) { transform:translateY(-7px) rotate(-45deg); }
-
-    /* ── TABLET & MOBILE MENU ── */
     @media (max-width:900px) {
       .hamburger { display:flex; }
-
-      /* Hide desktop links, show as fullscreen overlay */
       .nav-links {
-        display:flex;
-        position:fixed;
-        top:0; left:0; right:0; bottom:0;
-        width:100%; height:100vh;
-        background:#faf8f2;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        padding:40px 20px;
-        gap:32px;
-        visibility:hidden;
-        opacity:0;
-        pointer-events:none;
-        transition:opacity 0.3s ease, visibility 0.3s ease;
-        z-index:150;
-        list-style:none;
+        display:flex; position:fixed; top:0; left:0; right:0; bottom:0;
+        width:100%; height:100vh; background:#faf8f2; flex-direction:column;
+        align-items:center; justify-content:center; padding:40px 20px; gap:32px;
+        visibility:hidden; opacity:0; pointer-events:none;
+        transition:opacity 0.3s ease, visibility 0.3s ease; z-index:150; list-style:none;
       }
-      .nav-links.open {
-        visibility:visible;
-        opacity:1;
-        pointer-events:all;
-      }
-      .nav-links a {
-        font-size:1.2rem;
-        letter-spacing:0.15em;
-        color:var(--dark);
-      }
-      .nav-cta {
-        padding:14px 40px !important;
-        font-size:0.9rem !important;
-        background:var(--gold) !important;
-        color:white !important;
-      }
-
+      .nav-links.open { visibility:visible; opacity:1; pointer-events:all; }
+      .nav-links a { font-size:1.2rem; letter-spacing:0.15em; color:var(--dark); }
+      .nav-cta { padding:14px 40px !important; font-size:0.9rem !important; background:var(--gold) !important; color:white !important; }
       .hero { grid-template-columns:1fr; min-height:auto; padding-top:104px; }
       .hero-left { padding:48px 6% 36px; order:2; }
       .hero-right { min-height:320px; order:1; }
       .hero-photo { width:75%; max-width:320px; }
       .hero-name { font-size:2.8rem; }
-
       section { padding:72px 6%; }
       #sobre { grid-template-columns:1fr; gap:36px; }
       #faltas { grid-template-columns:1fr; gap:36px; }
@@ -324,12 +283,9 @@
       footer { justify-content:center; text-align:center; gap:16px; }
       .footer-links { justify-content:center; }
     }
-
-    /* ── MOBILE ── */
     @media (max-width:600px) {
       nav { padding:6px 5%; }
       .nav-logo img { height:60px; }
-
       .hero { padding-top:72px; }
       .hero-right { min-height:260px; }
       .hero-photo { width:85%; max-width:280px; }
@@ -338,36 +294,26 @@
       .hero-desc { font-size:0.92rem; }
       .hero-buttons { flex-direction:column; gap:10px; }
       .btn-primary, .btn-secondary { justify-content:center; padding:14px 20px; font-size:0.82rem; }
-
       section { padding:56px 5%; }
       .section-title { font-size:2rem; }
-
       .areas-grid { grid-template-columns:1fr; gap:14px; }
       .area-card { padding:28px 20px; }
-
       .planos-grid { grid-template-columns:1fr; }
       .plano-card { padding:28px 20px; }
       .plano-card.destaque::before { display:none; }
       .pagamento-info { flex-direction:column; text-align:center; gap:8px; padding:18px; }
-
       .sobre-cards { gap:14px; }
       .info-card { padding:18px 20px; }
-
       .faltas-list li { font-size:0.85rem; }
       .termos-box { padding:24px 20px; }
-
       .localizacao-info { padding:48px 5%; }
       .contato-item { font-size:0.88rem; }
-
       footer { padding:28px 5%; flex-direction:column; gap:12px; }
       footer img { height:44px; }
       .footer-text { font-size:0.7rem; }
       .footer-links { flex-direction:column; align-items:center; gap:12px; }
-
       .whatsapp-float { bottom:20px; right:16px; width:52px; height:52px; }
     }
-
-    /* ── SMALL MOBILE ── */
     @media (max-width:380px) {
       .hero-name { font-size:2rem; }
       .hero-right { min-height:220px; }
@@ -375,7 +321,6 @@
       .section-title { font-size:1.7rem; }
       .plano-valor { font-size:2.4rem; }
     }
-
     @keyframes fadeUp { from { opacity:0; transform:translateY(28px); } to { opacity:1; transform:translateY(0); } }
     .hero-tag { animation:fadeUp 0.7s 0.1s ease both; }
     .hero-name { animation:fadeUp 0.7s 0.2s ease both; }
@@ -401,7 +346,6 @@
     <span></span><span></span><span></span>
   </div>
 </nav>
-
 <section class="hero" id="home" aria-label="Apresentação">
   <div class="hero-left">
     <span class="hero-tag">Fonoaudióloga · CRFa 2-23700</span>
@@ -418,9 +362,7 @@
     <img src="./images/nathalia.png" alt="Nathália Machado Fonoaudióloga" class="hero-photo" loading="eager">
   </div>
 </section>
-
 <div class="gold-divider" aria-hidden="true"></div>
-
 <section id="sobre" aria-labelledby="sobre-titulo">
   <div class="sobre-text">
     <p class="section-label">Quem sou eu</p>
@@ -437,9 +379,7 @@
     <div class="info-card"><h3>⏱️ Duração da Sessão</h3><p>45 minutos por sessão. O valor se aplica a todas as consultas: anamnese, avaliação e acompanhamento.</p></div>
   </div>
 </section>
-
 <div class="gold-divider" aria-hidden="true"></div>
-
 <section id="areas" aria-labelledby="areas-titulo">
   <p class="section-label">Especialidades</p>
   <h2 class="section-title" id="areas-titulo">Áreas de <span>Atuação</span></h2>
@@ -452,9 +392,7 @@
     <article class="area-card" role="listitem"><span class="area-icon">👨‍👩‍👧</span><h3>Orientação Familiar</h3><p>Suporte e orientação para famílias, integrando o núcleo familiar no processo terapêutico da criança.</p></article>
   </div>
 </section>
-
 <div class="gold-divider" aria-hidden="true"></div>
-
 <section id="planos" aria-labelledby="planos-titulo">
   <p class="section-label">Investimento</p>
   <h2 class="section-title" id="planos-titulo">Valores e <span>Planos</span></h2>
@@ -498,9 +436,7 @@
   </div>
   <p class="pagamento-info"><span>💳</span> Formas de pagamento: <strong style="margin-left:4px;color:var(--text)">Pix · Dinheiro · Cartão</strong></p>
 </section>
-
 <div class="gold-divider" aria-hidden="true"></div>
-
 <section id="faltas" aria-labelledby="faltas-titulo">
   <div>
     <p class="section-label">Organização</p>
@@ -522,9 +458,7 @@
     <a href="./termos/termo.html" class="btn-termos" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg> Ler Termos de Atendimento</a>
   </div>
 </section>
-
 <div class="gold-divider" aria-hidden="true"></div>
-
 <section id="localizacao" aria-labelledby="localizacao-titulo">
   <div class="localizacao-inner">
     <div class="localizacao-info">
@@ -535,7 +469,7 @@
         <a href="https://www.google.com/maps/place/Nath%C3%A1lia+Machado+-+Fonoaudi%C3%B3loga/@-23.8787241,-47.9948579,17z/" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon">📍</span><span>R. Miguel Terra, 385 — Centro<br>São Miguel Arcanjo — SP</span></a>
         <a href="https://wa.me/5515996661683" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon">📱</span><span>(15) 99666-1683</span></a>
         <a href="https://www.instagram.com/fononamachado" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon">📸</span><span>@fononamachado</span></a>
-        <a href="mailto:fononamachado@gmail.com" class="contato-item"><span class="contato-icon">✉️</span><span><span class="__cf_email__" data-cfemail="ee88818081808f838f8d868f8a81ae89838f8782c08d8183">fononamachado@gmail.com</span></span></a>
+        <a href="mailto:fononamachado@gmail.com" class="contato-item"><span class="contato-icon">✉️</span><span>fononamachado@gmail.com</span></a>
       </address>
       <a href="https://wa.me/5515996661683?text=Ol%C3%A1%20Nath%C3%A1lia!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary" style="width:fit-content"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.137.564 4.143 1.549 5.875L.057 23.716a.5.5 0 0 0 .618.618l5.857-1.538A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.955 9.955 0 0 1-5.192-1.456l-.368-.22-3.848 1.012.98-3.784-.237-.384A9.956 9.956 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg> Agendar Consulta</a>
     </div>
@@ -544,7 +478,6 @@
     </div>
   </div>
 </section>
-
 <footer>
   <img src="./images/logo.png" alt="Nathália Machado Fonoaudióloga" loading="lazy">
   <p class="footer-text">© 2026 Nathália Machado · Fonoaudióloga · CRFa 2-23700<br>São Miguel Arcanjo — SP</p>
@@ -553,9 +486,7 @@
     <a href="https://www.instagram.com/fononamachado" target="_blank" rel="noopener">Instagram</a>
   </div>
 </footer>
-
 <a href="https://wa.me/5515996661683?text=Ol%C3%A1%20Nath%C3%A1lia!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Falar pelo WhatsApp"><svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
-
 <script>
   function toggleMenu() {
     var nav = document.getElementById('navLinks');
@@ -565,7 +496,6 @@
     btn.setAttribute('aria-expanded', isOpen);
     document.body.style.overflow = isOpen ? 'hidden' : '';
   }
-
   document.querySelectorAll('.nav-links a').forEach(function(link) {
     link.addEventListener('click', function() {
       document.getElementById('navLinks').classList.remove('open');
@@ -574,7 +504,6 @@
       document.body.style.overflow = '';
     });
   });
-
   document.addEventListener('click', function(e) {
     var nav = document.getElementById('navLinks');
     var btn = document.getElementById('hamburger');
@@ -585,7 +514,6 @@
       document.body.style.overflow = '';
     }
   });
-
   window.addEventListener('scroll', function() {
     var nav = document.getElementById('navbar');
     nav.style.boxShadow = window.scrollY > 60 ? '0 4px 24px rgba(0,0,0,0.08)' : 'none';
