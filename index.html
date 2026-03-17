@@ -216,15 +216,6 @@
     .plano-card.destaque .plano-lista li::before { color:var(--gold-light); }
     .pagamento-info { margin-top:44px; padding:22px 30px; background:white; border-radius:4px; display:inline-flex; align-items:center; gap:14px; font-size:0.88rem; color:var(--text-light); font-weight:300; }
     .pagamento-info span { font-size:1.4rem; }
-    #faltas { background:white; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start; }
-    .faltas-list { list-style:none; margin-top:28px; }
-    .faltas-list li { display:flex; gap:16px; padding:15px 0; border-bottom:1px solid var(--cream-dark); font-size:0.88rem; font-weight:300; line-height:1.6; color:var(--text); }
-    .faltas-list li:last-child { border-bottom:none; }
-    .faltas-num { width:28px; height:28px; background:var(--gold); color:white; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.7rem; font-weight:600; flex-shrink:0; margin-top:2px; }
-    .termos-box { background:var(--cream); border:1px solid var(--gold-light); border-radius:4px; padding:36px; text-align:center; }
-    .termos-box p { font-size:0.9rem; font-weight:300; line-height:1.7; color:var(--text-light); margin-bottom:24px; }
-    .btn-termos { display:inline-flex; align-items:center; gap:10px; background:var(--gold); color:white; text-decoration:none; padding:13px 28px; font-size:0.8rem; font-weight:500; letter-spacing:0.1em; text-transform:uppercase; border-radius:2px; transition:all 0.3s; }
-    .btn-termos:hover { background:var(--gold-dark); transform:translateY(-2px); }
     #localizacao { background:var(--sage); padding:0; }
     .localizacao-inner { display:grid; grid-template-columns:1fr 1fr; }
     .localizacao-info { padding:80px 6% 80px 8%; display:flex; flex-direction:column; justify-content:center; }
@@ -274,7 +265,6 @@
       .hero-name { font-size:2.8rem; }
       section { padding:72px 6%; }
       #sobre { grid-template-columns:1fr; gap:36px; }
-      #faltas { grid-template-columns:1fr; gap:36px; }
       .areas-grid { grid-template-columns:repeat(2,1fr); gap:16px; }
       .planos-grid { grid-template-columns:1fr; max-width:480px; margin-left:auto; margin-right:auto; }
       .localizacao-inner { grid-template-columns:1fr; }
@@ -395,28 +385,6 @@
   </div>
 </section>
 <div class="gold-divider" aria-hidden="true"></div>
-<section id="faltas" aria-labelledby="faltas-titulo">
-  <div>
-    <p class="section-label">Organização</p>
-    <h2 class="section-title" id="faltas-titulo">Faltas e <span>Reposições</span></h2>
-    <div class="gold-rule"></div>
-    <ul class="faltas-list">
-      <li><span class="faltas-num">1</span><span>Cancelamentos com <strong>mínimo 12h de antecedência</strong> não são cobrados.</span></li>
-      <li><span class="faltas-num">2</span><span>Cancelamentos fora desse prazo são cobrados normalmente.</span></li>
-      <li><span class="faltas-num">3</span><span>Faltas sem aviso não geram reposição e o tempo perdido por atraso não é compensado.</span></li>
-      <li><span class="faltas-num">4</span><span>Reposições em até <strong>30 dias</strong>; sem horário disponível, o valor vira crédito para o mês seguinte.</span></li>
-      <li><span class="faltas-num">5</span><span>Ausência prolongada: pausa de até 30 dias mantendo a vaga, com aviso de 30 dias. Disponível 1x por ano.</span></li>
-      <li><span class="faltas-num">6</span><span>A partir de 2 faltas consecutivas sem aviso, o paciente poderá perder sua vaga e horário preferencial.</span></li>
-    </ul>
-  </div>
-  <div class="termos-box">
-    <p class="section-label">Documentação</p>
-    <h3 class="section-title" style="font-size:1.8rem;margin-bottom:16px">Termos de <span>Atendimento</span></h3>
-    <p>Antes de iniciar o acompanhamento terapêutico, os responsáveis ou pacientes tomam ciência e concordam com os termos e condições do atendimento fonoaudiológico.</p>
-    <a href="./termos/termo.html" class="btn-termos" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10,9 9,9 8,9"/></svg> Ler Termos de Atendimento</a>
-  </div>
-</section>
-<div class="gold-divider" aria-hidden="true"></div>
 <section id="localizacao" aria-labelledby="localizacao-titulo">
   <div class="localizacao-inner">
     <div class="localizacao-info">
@@ -427,7 +395,7 @@
         <a href="https://www.google.com/maps/place/Nath%C3%A1lia+Machado+-+Fonoaudi%C3%B3loga/@-23.8787241,-47.9948579,17z/" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg></span><span>R. Miguel Terra, 385 — Centro<br>São Miguel Arcanjo — SP</span></a>
         <a href="https://wa.me/5515996661683" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span><span>(15) 99666-1683</span></a>
         <a href="https://www.instagram.com/fononamachado" target="_blank" rel="noopener" class="contato-item"><span class="contato-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7l-1.5-3h-5L8 7"/><circle cx="12" cy="14" r="3"/></svg></span><span>@fononamachado</span></a>
-        <a href="/cdn-cgi/l/email-protection#82e4edecedece3efe3e1eae3e6edc2e5efe3ebeeace1edef" class="contato-item"><span class="contato-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span><span><span class="__cf_email__" data-cfemail="82e4edecedece3efe3e1eae3e6edc2e5efe3ebeeace1edef">[email&#160;protected]</span></span></a>
+        <a href="mailto:fononamachado@gmail.com" class="contato-item"><span class="contato-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg></span><span>fononamachado@gmail.com</span></a>
       </address>
       <a href="https://wa.me/5515996661683?text=Ol%C3%A1%20Nath%C3%A1lia!%20Gostaria%20de%20agendar%20uma%20consulta." target="_blank" rel="noopener" class="btn-primary" style="width:fit-content"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.137.564 4.143 1.549 5.875L.057 23.716a.5.5 0 0 0 .618.618l5.857-1.538A11.946 11.946 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22a9.955 9.955 0 0 1-5.192-1.456l-.368-.22-3.848 1.012.98-3.784-.237-.384A9.956 9.956 0 0 1 2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10z"/></svg> Agendar Consulta</a>
     </div>
