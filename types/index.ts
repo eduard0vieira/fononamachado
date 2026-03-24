@@ -35,8 +35,10 @@ export interface FaltaItem {
   text: string;
 }
 
+export type ContatoIconKind = "map" | "phone" | "instagram" | "mail";
+
 export interface ContatoItem {
-  icon: string;
+  kind: ContatoIconKind;
   label: string;
   href: string;
   isExternal?: boolean;

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "primary" | "secondary" | "forest" | "ghost";
+type Variant = "primary" | "secondary" | "forest" | "ghost" | "cream";
 
 interface BaseProps {
   variant?: Variant;
@@ -32,6 +32,9 @@ const variantClasses: Record<Variant, string> = {
   forest:
     "bg-forest text-white hover:bg-forest-light hover:-translate-y-0.5 hover:shadow-md",
   ghost: "bg-transparent text-ink-muted hover:text-forest hover:bg-sage-pale",
+  /** Destaque em fundos escuros (ex.: seção Localização) — alinhado à paleta editorial */
+  cream:
+    "border border-white/15 bg-cream text-forest shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-0.5 hover:border-white/25 hover:bg-white hover:shadow-[0_12px_40px_rgba(0,0,0,0.22)]",
 };
 
 const baseClasses =
