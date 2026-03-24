@@ -30,12 +30,15 @@ export default function TermoSections() {
         </p>
         <p>
           A frequência <strong>semanal</strong> é recomendada, pois a constância
-          é um fator essencial para o progresso terapêutico.
+          é um fator essencial para o progresso terapêutico. A frequência
+          poderá, no entanto, ser definida ou ajustada conforme avaliação
+          clínica e evolução terapêutica do paciente.
         </p>
         <p>
-          Em situações específicas, o acompanhamento é ajustado da melhor forma
-          possível, respeitando a realidade familiar, sem perder de vista os
-          objetivos terapêuticos.
+          Em situações específicas, especialmente quando a família não consegue
+          manter a frequência semanal, o acompanhamento é ajustado da melhor
+          forma possível, respeitando a realidade familiar, sem perder de vista
+          os objetivos terapêuticos.
         </p>
       </TermoSection>
 
@@ -92,7 +95,8 @@ export default function TermoSections() {
           <TermoHighlightCard label="Pagamento mensal">
             <p>
               Em data fixa acordada. O responsável pode optar por incluir todas
-              as sessões do mês ou limitar a no máximo 4 sessões mensais.
+              as sessões do mês, inclusive em meses com 5 atendimentos, ou
+              limitar a no máximo 4 sessões mensais.
             </p>
           </TermoHighlightCard>
         </div>
@@ -157,10 +161,10 @@ export default function TermoSections() {
 
       <TermoSection number="08" title="Ausência prolongada">
         <p>
-          Caso o paciente precise se ausentar por período prolongado, poderá
-          solicitar uma <strong>pausa temporária</strong> no atendimento, desde
-          que comunique com mínimo de{" "}
-          <strong>30 dias de antecedência</strong>.
+          Caso o paciente precise se ausentar por período prolongado (viagens,
+          férias ou outras situações), poderá solicitar uma{" "}
+          <strong>pausa temporária</strong> no atendimento, desde que comunique
+          com mínimo de <strong>30 dias de antecedência</strong>.
         </p>
         <p>
           Será possível manter a vaga reservada por até{" "}
@@ -177,7 +181,16 @@ export default function TermoSections() {
 
       <TermoSection number="09" title="Atraso de pagamento">
         <p>Pagamentos realizados após a data combinada poderão sofrer:</p>
-        <TermoList items={["Multa de 2%;", "Juros de 1% ao mês."]} />
+        <TermoList
+          items={[
+            <>
+              Multa de <strong>2%</strong>;
+            </>,
+            <>
+              Juros de <strong>1% ao mês</strong>.
+            </>,
+          ]}
+        />
         <p>Em caso de atraso recorrente poderá ocorrer:</p>
         <TermoList
           items={[
@@ -204,7 +217,8 @@ export default function TermoSections() {
           Por padrão, a nota fiscal será emitida com o{" "}
           <strong>nome e CPF do responsável financeiro</strong>. Caso o
           responsável deseje incluir também telefone e endereço, deverá
-          solicitar expressamente essa inclusão.
+          solicitar expressamente essa inclusão, pois essas informações só serão
+          inseridas mediante solicitação.
         </p>
       </TermoSection>
 
@@ -234,7 +248,8 @@ export default function TermoSections() {
         />
         <p>
           As gravações são destinadas apenas ao <strong>uso interno</strong>,
-          não sendo utilizadas para divulgação pública.
+          não sendo utilizadas para divulgação pública em redes sociais, sites
+          ou qualquer outro meio de comunicação.
         </p>
         <p>
           Esta autorização poderá ser{" "}
@@ -269,7 +284,10 @@ export default function TermoSections() {
         <p>
           No entanto, a evolução terapêutica depende de fatores individuais de
           cada paciente, como histórico clínico, engajamento nas atividades
-          propostas e o apoio do ambiente familiar. Por esse motivo,{" "}
+          propostas, adesão ao tratamento e o apoio do ambiente familiar. A
+          participação ativa da família é fundamental para reforçar os
+          estímulos, orientar rotinas e contribuir para a continuidade do
+          processo terapêutico fora das sessões. Por esse motivo,{" "}
           <strong>não é possível garantir resultados em prazo determinado</strong>
           .
         </p>
@@ -299,29 +317,29 @@ export default function TermoSections() {
       <TermoSpacer />
 
       <aside
-        className="mt-14 rounded-2xl border border-forest/12 bg-gradient-to-br from-sage-pale/90 to-cream-alt/80 px-6 py-8 text-center shadow-card sm:px-10"
+        className="relative mt-14 overflow-hidden rounded-md bg-forest px-6 py-9 text-center shadow-md sm:px-10 sm:py-10"
         aria-labelledby="termo-aceite-titulo"
       >
-        <p className="text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-honey">
-          Aceite dos termos
+        <p className="font-serif text-[0.8125rem] italic tracking-[0.18em] text-honey-light">
+          aceite dos termos
         </p>
         <h2
           id="termo-aceite-titulo"
-          className="mt-3 font-serif text-[clamp(1.35rem,3.5vw,1.75rem)] font-medium text-ink"
+          className="mt-4 font-serif text-[clamp(1.2rem,3.5vw,1.375rem)] font-normal uppercase tracking-[0.12em] text-white"
         >
-          16. Aceite dos termos
+          16. Aceite dos Termos
         </h2>
-        <div
-          className="mx-auto my-5 h-px w-12 bg-gradient-to-r from-transparent via-honey/50 to-transparent"
-          aria-hidden="true"
-        />
-        <p className="mx-auto max-w-xl text-[0.9375rem] leading-[1.85] text-ink-muted">
+        <p className="mx-auto mt-4 max-w-[560px] text-[0.875rem] leading-[1.9] text-white/70">
           O responsável declara ter tido acesso prévio a estes termos antes do
           início ou continuidade do atendimento, e que o envio de dados para
           cadastro, confirmação de agendamento, realização de pagamento ou
           continuidade dos atendimentos caracteriza ciência e concordância com
           todas as condições aqui estabelecidas.
         </p>
+        <div
+          className="mx-auto mt-5 h-px w-10 bg-honey"
+          aria-hidden="true"
+        />
       </aside>
     </>
   );

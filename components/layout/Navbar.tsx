@@ -161,7 +161,7 @@ export default function Navbar() {
         aria-hidden={!menuOpen}
         className={cn(
           "fixed left-1/2 top-[calc(72px+10px)] z-20 w-[min(20rem,calc(100vw-2rem))] max-h-[min(72vh,calc(100dvh-100px))] overflow-y-auto rounded-2xl md:hidden",
-          "list-none border border-forest/10 bg-cream/98 py-2 px-2 shadow-[0_16px_48px_-12px_rgba(38,77,59,0.22)] backdrop-blur-md",
+          "list-none border border-forest/10 bg-cream/98 py-2 px-2 shadow-[0_16px_48px_-12px_rgba(94,114,82,0.22)] backdrop-blur-md",
           "origin-top transition-[opacity,transform] motion-reduce:transition-none",
           menuOpen
             ? "pointer-events-auto -translate-x-1/2 translate-y-0 scale-100 opacity-100"

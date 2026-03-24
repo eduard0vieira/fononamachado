@@ -25,7 +25,7 @@ export default function Footer() {
             <Logo
               height={78}
               linked={false}
-              imgClassName="opacity-[0.92] drop-shadow-[0_1px_12px_rgba(38,77,59,0.06)]"
+              imgClassName="opacity-[0.92] drop-shadow-[0_1px_12px_rgba(94,114,82,0.06)]"
               loading="lazy"
             />
           </div>

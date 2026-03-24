@@ -8,31 +8,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        /** Tons escuros de destaque (equivalente ao sage-dark + sage do termo) */
         forest: {
-          DEFAULT: '#264D3B',
-          light: '#3A6B52',
+          DEFAULT: '#5e7252',
+          light: '#8a9e7e',
         },
         sage: {
-          DEFAULT: '#7FAF97',
-          light: '#B5D0C4',
-          pale: '#EBF3EF',
+          DEFAULT: '#8a9e7e',
+          light: '#b8c9af',
+          /** Fundo muito claro com “sopro” de sage — não existe no HTML; deriva de cream + sage */
+          pale: '#eef0eb',
         },
         honey: {
-          DEFAULT: '#C4834A',
-          light: '#E8B48A',
-          pale: '#FAF0E6',
+          DEFAULT: '#c9a96e',
+          light: '#e2c99a',
+          pale: '#f5efe4',
         },
         cream: {
-          DEFAULT: '#FAFAF7',
-          alt: '#F3F0EA',
-          /** Fundo hero — tom quente próximo ao #FAF7F2 */
-          warm: '#FAF7F2',
+          DEFAULT: '#faf8f0',
+          alt: '#f0ede4',
+          /** Papel / leitura — alinhado ao --white do termo */
+          warm: '#fdfaf6',
         },
         ink: {
-          DEFAULT: '#1A201D',
-          soft: '#343C38',
-          muted: '#6E7870',
+          DEFAULT: '#2e2a24',
+          soft: '#5a5248',
+          /** Texto secundário, um passo mais claro que ink-soft */
+          muted: '#73695c',
         },
+        /** --white do termo.html (substitui o branco puro do Tailwind neste projeto) */
+        white: '#fdfaf6',
       },
       fontFamily: {
         sans: ['var(--font-inter)', 'system-ui', 'sans-serif'],

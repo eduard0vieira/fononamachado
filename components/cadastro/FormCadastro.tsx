@@ -4,7 +4,7 @@ import { useCadastroForm } from "@/hooks/useCadastroForm";
 import { cn } from "@/lib/utils";
 
 const fieldBase =
-  "w-full border border-cream-alt rounded-lg px-3.5 py-2.5 font-sans text-[0.88rem] font-light text-ink bg-cream outline-none transition-all duration-200 focus:border-honey focus:shadow-[0_0_0_3px_rgba(196,131,74,0.12)] focus:bg-white";
+  "w-full border border-cream-alt rounded-lg px-3.5 py-2.5 font-sans text-[0.88rem] font-light text-ink bg-cream outline-none transition-all duration-200 focus:border-honey focus:shadow-[0_0_0_3px_rgba(201,169,110,0.12)] focus:bg-white";
 
 const fieldError = "border-red-500";
 
@@ -446,7 +446,7 @@ export default function FormCadastro() {
       <button
         type="submit"
         disabled={submitting}
-        className="w-full flex items-center justify-center gap-2.5 bg-forest text-white rounded-lg py-4 text-[0.88rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 hover:bg-forest-light hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(38,77,59,0.3)] disabled:bg-sage-light disabled:cursor-not-allowed disabled:transform-none mt-2"
+        className="w-full flex items-center justify-center gap-2.5 bg-forest text-white rounded-lg py-4 text-[0.88rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 hover:bg-forest-light hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(94,114,82,0.3)] disabled:bg-sage-light disabled:cursor-not-allowed disabled:transform-none mt-2"
       >
         <SendIcon />
         {submitting ? "Enviando..." : "Enviar Cadastro"}

@@ -103,7 +103,7 @@ export default function FaltasSection() {
 
         <aside
           className={cn(
-            "rounded-2xl border border-forest/10 bg-white p-6 text-center shadow-card sm:p-8",
+            "self-start rounded-2xl border border-forest/10 bg-white p-6 text-center shadow-card sm:p-8",
             "lg:sticky lg:top-[calc(72px+1.5rem)]",
           )}
           aria-labelledby="faltas-termos-titulo"

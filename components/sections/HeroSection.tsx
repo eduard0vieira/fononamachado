@@ -56,7 +56,7 @@ function HeroPortrait() {
         className={cn(
           "relative aspect-square w-[min(88vw,320px)] sm:w-[min(80vw,380px)] lg:w-[min(42vw,440px)]",
           "overflow-hidden rounded-full bg-cream-alt",
-          "shadow-[0_28px_64px_-18px_rgba(38,77,59,0.28),0_12px_24px_-12px_rgba(0,0,0,0.08)]",
+          "shadow-[0_28px_64px_-18px_rgba(94,114,82,0.28),0_12px_24px_-12px_rgba(0,0,0,0.08)]",
           "ring-1 ring-stone-900/[0.06]",
         )}
       >
@@ -125,12 +125,12 @@ export default function HeroSection() {
             <div className="animate-fade-up animation-delay-500 mt-10 flex flex-wrap gap-3">
               <Button
                 as="link"
-                variant="primary"
+                variant="softOutlineWhatsapp"
                 href={WHATSAPP_AGENDAMENTO_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Agendar pelo WhatsApp"
-                className="rounded-xl px-7 py-3.5 shadow-md shadow-emerald-600/20"
+                className="rounded-xl px-7 py-3.5"
               >
                 <WhatsAppIcon />
                 WhatsApp
@@ -138,14 +138,11 @@ export default function HeroSection() {
 
               <Button
                 as="link"
-                variant="secondary"
+                variant="softOutlineInstagram"
                 href={INSTAGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={cn(
-                  "rounded-xl border-stone-300/90 bg-white px-7 py-3.5 text-ink-soft",
-                  "shadow-sm hover:border-stone-400 hover:bg-stone-50/90",
-                )}
+                className="rounded-xl px-7 py-3.5"
               >
                 <InstagramIcon />
                 {INSTAGRAM_HANDLE}

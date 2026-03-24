@@ -154,7 +154,7 @@ export default function LocalizacaoSection() {
     >
       {/* Textura suave — evita “bloco chapado” sem sair da paleta */}
       <div
-        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_0%,rgba(127,175,151,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_100%,rgba(196,131,74,0.06),transparent_50%)]"
+        className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_20%_0%,rgba(138,158,126,0.12),transparent_55%),radial-gradient(ellipse_70%_50%_at_100%_100%,rgba(201,169,110,0.06),transparent_50%)]"
         aria-hidden="true"
       />
 

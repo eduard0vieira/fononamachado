@@ -12,7 +12,7 @@ export function TermoSection({
 }) {
   return (
     <section
-      className="scroll-mt-28 border-b border-forest/8 pb-12 pt-2 last:border-b-0 last:pb-0"
+      className="scroll-mt-28 pb-2 pt-2"
       aria-labelledby={`termo-sec-${number}`}
     >
       <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:gap-5">
@@ -62,7 +62,7 @@ export function TermoHighlightCard({
   return (
     <div
       className={cn(
-        "rounded-2xl border border-forest/10 bg-white px-5 py-4 shadow-card",
+        "rounded-sm border border-forest/10 border-l-[3px] border-l-honey bg-cream-warm px-5 py-4 shadow-card",
         "transition-shadow duration-200 hover:shadow-md",
       )}
     >
@@ -74,14 +74,16 @@ export function TermoHighlightCard({
   );
 }
 
-/** Separador leve entre cláusulas (substitui o ✦) */
+/** Separador entre cláusulas — alinhado ao termo.html (linhas + ✦) */
 export function TermoSpacer() {
   return (
     <div
-      className="my-10 flex justify-center"
+      className="my-12 flex items-center gap-4 sm:gap-5"
       aria-hidden="true"
     >
-      <div className="h-px w-16 bg-gradient-to-r from-transparent via-sage/40 to-transparent" />
+      <div className="h-px flex-1 bg-cream-alt" />
+      <span className="font-serif text-lg tracking-[0.3em] text-honey">✦</span>
+      <div className="h-px flex-1 bg-cream-alt" />
     </div>
   );
 }

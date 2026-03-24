@@ -6,9 +6,9 @@ import { siteEdgePadding } from "@/lib/siteLayout";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Termos de Atendimento — Nathália Machado Fonoaudióloga",
+  title: "Termos de Atendimento – Nathália Machado Fonoaudióloga",
   description:
-    "Termos de atendimento fonoaudiológico: horários, valores, faltas, pagamentos, privacidade e comunicação. Nathália Machado · CRFa 2-23700 · São Miguel Arcanjo — SP.",
+    "Termos de atendimento fonoaudiológico: reserva de horário, valores, pagamentos, faltas, reposições, nota fiscal, imagem e voz, comunicação e aceite. Nathália Machado · CRFa 2-23700 · São Miguel Arcanjo — SP.",
   robots: { index: true, follow: true },
 };
 

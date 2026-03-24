@@ -32,16 +32,15 @@ export default function TermoPageHeader() {
       <SiteContainer>
         <div className="mx-auto max-w-3xl text-center">
           <SectionLabel>Documento legal</SectionLabel>
-          <h1 className="font-serif text-[clamp(2rem,5vw,2.75rem)] font-light leading-tight tracking-tight text-ink">
-            Termos de{" "}
-            <span className="text-forest italic">atendimento</span>
+          <h1 className="font-serif text-[clamp(1.35rem,4vw,1.875rem)] font-medium uppercase leading-snug tracking-[0.12em] text-ink sm:tracking-[0.14em]">
+            Termos de Atendimento Fonoaudiológico
           </h1>
-          <p className="mt-3 text-[0.8125rem] font-light tracking-wide text-ink-muted">
-            Fonoaudiologia · Nathália Machado · CRFa 2-23700
+          <GoldRule className="mx-auto my-5 sm:my-6" />
+          <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-ink-muted">
+            Última atualização: Março de 2026
           </p>
-          <GoldRule className="mx-auto my-6" />
-          <p className="text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink-muted/90">
-            Última atualização: março de 2026
+          <p className="mt-4 text-[0.8125rem] font-light tracking-wide text-ink-muted">
+            Nathália Machado Vieira de Oliveira · CRFa 2-23700
           </p>
           <Link
             href="/"
