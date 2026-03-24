@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "motion/react";
 import Button from "@/components/ui/Button";
 import {
   WHATSAPP_AGENDAMENTO_URL,
@@ -6,6 +9,7 @@ import {
   INSTAGRAM_HANDLE,
 } from "@/lib/constants";
 import { siteEdgePadding, siteMaxWidthInner } from "@/lib/siteLayout";
+import { DURATION, EASE_OUT } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 const WhatsAppIcon = () => (
@@ -33,12 +37,30 @@ const InstagramIcon = () => (
   </svg>
 );
 
-/** Badge estilo referência: borda fina, fundo translúcido, tipografia pequena em caixa alta */
+const heroTextContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const heroTextItem = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: DURATION.hero, ease: EASE_OUT },
+  },
+};
+
 function HeroBadge({ children }: { children: React.ReactNode }) {
   return (
     <span
       className={cn(
-        "animate-fade-up animation-delay-100 inline-flex w-fit items-center rounded-pill",
+        "inline-flex w-fit items-center rounded-pill",
         "border border-stone-300/80 bg-white/70 px-4 py-2 backdrop-blur-sm",
         "text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-muted",
       )}
@@ -48,111 +70,231 @@ function HeroBadge({ children }: { children: React.ReactNode }) {
   );
 }
 
-/** Retrato circular com sombra suave (elevado do fundo) */
-function HeroPortrait() {
-  return (
-    <div className="relative mx-auto flex w-full max-w-[min(92vw,460px)] justify-center md:mx-0 md:max-w-none md:justify-end">
+function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
+  const inner = (
+    <div
+      className={cn(
+        "rounded-[1.875rem] bg-gradient-to-b from-sage-light/45 via-sage-pale/80 to-forest-light/30 p-2 sm:rounded-[2.375rem] sm:p-2.5 lg:rounded-[2.5rem]",
+        "shadow-[0_26px_60px_-18px_rgba(94,114,82,0.32),0_12px_32px_-14px_rgba(62,82,52,0.2),0_4px_14px_-6px_rgba(94,114,82,0.12)]",
+      )}
+    >
       <div
         className={cn(
-          "relative aspect-square w-[min(88vw,320px)] sm:w-[min(80vw,380px)] lg:w-[min(42vw,440px)]",
-          "overflow-hidden rounded-full bg-cream-alt",
-          "shadow-[0_28px_64px_-18px_rgba(94,114,82,0.28),0_12px_24px_-12px_rgba(0,0,0,0.08)]",
-          "ring-1 ring-stone-900/[0.06]",
+          "relative aspect-square w-[min(78vw,280px)] sm:w-[min(80vw,380px)] lg:w-[min(42vw,440px)]",
+          "overflow-hidden rounded-[1.375rem] bg-forest sm:rounded-[1.875rem] lg:rounded-[2rem]",
+          "backface-hidden [transform:translateZ(0)]",
         )}
       >
         <Image
           src="/images/nathalia.png"
           alt="Nathália Machado Fonoaudióloga"
           fill
-          className="object-cover object-[center_12%] scale-[1.08] sm:scale-105"
+          className={cn(
+            "border-0 object-cover object-[center_12%] outline-none ring-0",
+            "scale-[1.14] sm:scale-[1.1]",
+          )}
           priority
           sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 440px"
         />
       </div>
     </div>
   );
+
+  if (reduceMotion) {
+    return (
+      <div className="relative mx-auto flex w-full max-w-[min(92vw,460px)] justify-center md:mx-0 md:max-w-none md:justify-end">
+        {inner}
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative mx-auto flex w-full max-w-[min(92vw,460px)] justify-center md:mx-0 md:max-w-none md:justify-end">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.92, y: 16 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        transition={{
+          duration: 1.15,
+          ease: EASE_OUT,
+          delay: 0.5,
+        }}
+      >
+        {inner}
+      </motion.div>
+    </div>
+  );
 }
 
 export default function HeroSection() {
+  const reduceMotion = useReducedMotion() ?? false;
+
   return (
     <section
       id="home"
       aria-label="Apresentação"
       className={cn(
-        "relative flex min-h-[calc(100dvh-72px)] items-center bg-cream-warm",
+        "relative flex min-h-[calc(100dvh-72px)] bg-cream-warm",
+        /* Mobile: conteúdo começa no topo e pode crescer (evita cortar CTAs). Desktop: centraliza na viewport. */
+        "max-md:items-start md:items-center",
+        "overflow-x-hidden",
         "mt-[72px]",
         siteEdgePadding,
       )}
     >
+      {/* Luz ambiente — respira devagar (respeita prefers-reduced-motion) */}
+      {!reduceMotion && (
+        <div
+          className="pointer-events-none absolute inset-0 overflow-hidden"
+          aria-hidden="true"
+        >
+          <motion.div
+            className="absolute -right-[18%] top-[8%] h-[min(62vw,480px)] w-[min(62vw,480px)] rounded-full bg-honey/[0.07] blur-3xl"
+            animate={{
+              opacity: [0.45, 0.75, 0.45],
+              scale: [1, 1.05, 1],
+            }}
+            transition={{
+              duration: 16,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+          />
+          <motion.div
+            className="absolute -left-[12%] bottom-[5%] h-[min(50vw,380px)] w-[min(50vw,380px)] rounded-full bg-sage/[0.09] blur-3xl"
+            animate={{
+              opacity: [0.35, 0.6, 0.35],
+              scale: [1, 1.04, 1],
+            }}
+            transition={{
+              duration: 18,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: 2,
+            }}
+          />
+        </div>
+      )}
+
       <div
         className={cn(
           siteMaxWidthInner,
-          "grid grid-cols-1 items-center gap-12 py-14 md:grid-cols-2 md:gap-12 lg:gap-16 lg:py-20",
+          "relative grid w-full grid-cols-1 gap-8 py-10 max-md:pb-[max(7.5rem,env(safe-area-inset-bottom,0px)+5.5rem)] md:grid-cols-2 md:items-center md:gap-12 md:py-14 lg:gap-16 lg:py-20",
         )}
       >
-        {/*
-          Coluna texto: em md+, ml-auto empurra o bloco para a direita da célula,
-          aproximando do centro da tela (mais “no meio” entre borda e foto).
-        */}
         <div className="order-2 flex w-full flex-col justify-center md:order-1">
           <div className="mx-auto w-full max-w-[28rem] md:mx-0 md:ml-auto md:mr-0 lg:max-w-[30rem] lg:pr-4">
-            <HeroBadge>Fonoaudióloga · CRFa 2-23700</HeroBadge>
-
-            <h1
-              className={cn(
-                "animate-fade-up animation-delay-200 mt-8 font-serif text-[clamp(2.75rem,6vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink",
-              )}
-            >
-              Nathália
-              <br />
-              <em className="not-italic text-forest">Machado</em>
-            </h1>
-
-            <p
-              className={cn(
-                "animate-fade-up animation-delay-300 mt-8 text-[1.05rem] font-light leading-[1.82] text-ink-soft/90",
-              )}
-            >
-              Atendimento humanizado em Linguagem Adulto e Infantil, Motricidade
-              Orofacial e Disfagia, guiado pelo cuidado, escuta e respeito às
-              necessidades de cada pessoa.
-            </p>
-
-            <p className="animate-fade-up animation-delay-400 mt-5 text-sm font-normal tracking-wide text-ink-muted/85">
-              São Miguel Arcanjo — SP
-            </p>
-
-            <div className="animate-fade-up animation-delay-500 mt-10 flex flex-wrap gap-3">
-              <Button
-                as="link"
-                variant="softOutlineWhatsapp"
-                href={WHATSAPP_AGENDAMENTO_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Agendar pelo WhatsApp"
-                className="rounded-xl px-7 py-3.5"
+            {reduceMotion ? (
+              <>
+                <HeroBadge>Fonoaudióloga · CRFa 2-23700</HeroBadge>
+                <h1
+                  className={cn(
+                    "mt-8 font-serif text-[clamp(2.75rem,6vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink",
+                  )}
+                >
+                  Nathália
+                  <br />
+                  <em className="not-italic text-forest">Machado</em>
+                </h1>
+                <p className="mt-8 text-[1.05rem] font-light leading-[1.82] text-ink-soft/90">
+                  Atendimento humanizado em Linguagem Adulto e Infantil,
+                  Motricidade Orofacial e Disfagia, guiado pelo cuidado, escuta
+                  e respeito às necessidades de cada pessoa.
+                </p>
+                <p className="mt-5 text-sm font-normal tracking-wide text-ink-muted/85">
+                  São Miguel Arcanjo — SP
+                </p>
+                <div className="mt-10 flex flex-row flex-nowrap gap-2 sm:gap-3">
+                  <Button
+                    as="link"
+                    variant="softOutlineWhatsapp"
+                    href={WHATSAPP_AGENDAMENTO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Agendar pelo WhatsApp"
+                    className="min-w-0 flex-1 basis-0 justify-center rounded-xl px-3 py-3 text-xs sm:px-7 sm:py-3.5 sm:text-sm"
+                  >
+                    <WhatsAppIcon />
+                    WhatsApp
+                  </Button>
+                  <Button
+                    as="link"
+                    variant="softOutlineInstagram"
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-w-0 flex-1 basis-0 justify-center rounded-xl px-3 py-3 text-xs sm:px-7 sm:py-3.5 sm:text-sm"
+                  >
+                    <InstagramIcon />
+                    <span className="min-w-0 truncate">{INSTAGRAM_HANDLE}</span>
+                  </Button>
+                </div>
+              </>
+            ) : (
+              <motion.div
+                variants={heroTextContainer}
+                initial="hidden"
+                animate="visible"
               >
-                <WhatsAppIcon />
-                WhatsApp
-              </Button>
-
-              <Button
-                as="link"
-                variant="softOutlineInstagram"
-                href={INSTAGRAM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-xl px-7 py-3.5"
-              >
-                <InstagramIcon />
-                {INSTAGRAM_HANDLE}
-              </Button>
-            </div>
+                <motion.div variants={heroTextItem}>
+                  <HeroBadge>Fonoaudióloga · CRFa 2-23700</HeroBadge>
+                </motion.div>
+                <motion.h1
+                  variants={heroTextItem}
+                  className="mt-8 font-serif text-[clamp(2.75rem,6vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink"
+                >
+                  Nathália
+                  <br />
+                  <em className="not-italic text-forest">Machado</em>
+                </motion.h1>
+                <motion.p
+                  variants={heroTextItem}
+                  className="mt-8 text-[1.05rem] font-light leading-[1.82] text-ink-soft/90"
+                >
+                  Atendimento humanizado em Linguagem Adulto e Infantil,
+                  Motricidade Orofacial e Disfagia, guiado pelo cuidado, escuta
+                  e respeito às necessidades de cada pessoa.
+                </motion.p>
+                <motion.p
+                  variants={heroTextItem}
+                  className="mt-5 text-sm font-normal tracking-wide text-ink-muted/85"
+                >
+                  São Miguel Arcanjo — SP
+                </motion.p>
+                <motion.div
+                  variants={heroTextItem}
+                  className="mt-10 flex flex-row flex-nowrap gap-2 sm:gap-3"
+                >
+                  <Button
+                    as="link"
+                    variant="softOutlineWhatsapp"
+                    href={WHATSAPP_AGENDAMENTO_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Agendar pelo WhatsApp"
+                    className="min-w-0 flex-1 basis-0 justify-center rounded-xl px-3 py-3 text-xs sm:px-7 sm:py-3.5 sm:text-sm"
+                  >
+                    <WhatsAppIcon />
+                    WhatsApp
+                  </Button>
+                  <Button
+                    as="link"
+                    variant="softOutlineInstagram"
+                    href={INSTAGRAM_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="min-w-0 flex-1 basis-0 justify-center rounded-xl px-3 py-3 text-xs sm:px-7 sm:py-3.5 sm:text-sm"
+                  >
+                    <InstagramIcon />
+                    <span className="min-w-0 truncate">{INSTAGRAM_HANDLE}</span>
+                  </Button>
+                </motion.div>
+              </motion.div>
+            )}
           </div>
         </div>
 
         <div className="order-1 md:order-2">
-          <HeroPortrait />
+          <HeroPortrait reduceMotion={reduceMotion} />
         </div>
       </div>
     </section>

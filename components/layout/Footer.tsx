@@ -1,13 +1,20 @@
 import Link from "next/link";
 import SiteContainer from "@/components/layout/SiteContainer";
+import { Reveal } from "@/components/motion";
 import Logo from "@/components/ui/Logo";
 import { INSTAGRAM_URL } from "@/lib/constants";
 import { siteEdgePadding } from "@/lib/siteLayout";
 import { cn } from "@/lib/utils";
 
 const footerLinkClass = cn(
-  "text-[0.8125rem] font-medium tracking-wide text-ink-muted",
-  "underline-offset-4 transition-colors hover:text-forest hover:underline",
+  "relative inline-block text-[0.8125rem] font-medium tracking-wide text-ink-muted",
+  "transition-[color,transform] duration-200 ease-out",
+  "hover:-translate-y-0.5 hover:text-forest",
+  "motion-reduce:transition-colors motion-reduce:hover:translate-y-0",
+  "after:pointer-events-none after:absolute after:inset-x-0 after:-bottom-1 after:h-0.5 after:origin-left after:scale-x-0 after:rounded-full after:bg-forest/60 after:transition-transform after:duration-300 after:ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:after:duration-0",
+  "hover:after:scale-x-100",
+  "focus-visible:rounded-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-forest/35 focus-visible:ring-offset-2 focus-visible:ring-offset-cream-alt",
+  "focus-visible:after:scale-x-100",
 );
 
 export default function Footer() {
@@ -19,6 +26,7 @@ export default function Footer() {
       )}
     >
       <SiteContainer>
+        <Reveal>
         <div className="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
           {/* Logo maior — bloco com “respiro” para parecer mais editorial */}
           <div className="flex shrink-0 flex-col items-center sm:items-start">
@@ -58,6 +66,7 @@ export default function Footer() {
           <br />
           <span className="text-ink-muted/75">São Miguel Arcanjo — SP</span>
         </p>
+        </Reveal>
       </SiteContainer>
     </footer>
   );

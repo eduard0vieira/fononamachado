@@ -1,4 +1,5 @@
 import SiteContainer from "@/components/layout/SiteContainer";
+import { Reveal, StaggerItem, StaggerList } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GoldRule from "@/components/ui/GoldRule";
 import Button from "@/components/ui/Button";
@@ -83,24 +84,31 @@ export default function FaltasSection() {
     >
       <SiteContainer className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-20">
         <div>
-          <SectionLabel>Organização</SectionLabel>
-          <h2
-            id="faltas-titulo"
-            className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] font-light leading-[1.15] text-ink"
-          >
-            Faltas e <span className="text-forest italic">Reposições</span>
-          </h2>
-          <GoldRule />
+          <Reveal>
+            <SectionLabel>Organização</SectionLabel>
+            <h2
+              id="faltas-titulo"
+              className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] font-light leading-[1.15] text-ink"
+            >
+              Faltas e <span className="text-forest italic">Reposições</span>
+            </h2>
+            <GoldRule />
+          </Reveal>
 
-          <ul className="mt-6 list-none space-y-3 md:mt-8" role="list">
+          <StaggerList
+            className="mt-6 list-none space-y-3 md:mt-8"
+            as="ul"
+            role="list"
+          >
             {FALTAS.map((falta) => (
-              <li key={falta.number} role="listitem">
+              <StaggerItem key={falta.number} as="li" role="listitem">
                 <FaltaRuleCard falta={falta} />
-              </li>
+              </StaggerItem>
             ))}
-          </ul>
+          </StaggerList>
         </div>
 
+        <Reveal delay={0.1}>
         <aside
           className={cn(
             "self-start rounded-2xl border border-forest/10 bg-white p-6 text-center shadow-card sm:p-8",
@@ -125,6 +133,7 @@ export default function FaltasSection() {
             Ler termos completos
           </Button>
         </aside>
+        </Reveal>
       </SiteContainer>
     </section>
   );

@@ -23,14 +23,40 @@ const NAV_LINKS: NavLink[] = [
 const MENU_EASE = "cubic-bezier(0.16, 1, 0.3, 1)";
 const MENU_MS = 320;
 
+/** Altura da barra fixa — precisa bater com `h-[72px]` e o cálculo de overlap */
+const NAV_HEIGHT = 72;
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  /** Navbar sobre a seção escura (Localização & contato) — links precisam ficar claros */
+  const [overDarkSection, setOverDarkSection] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const updateOverlap = () => {
+      const el = document.getElementById("localizacao");
+      if (!el) {
+        setOverDarkSection(false);
+        return;
+      }
+      const r = el.getBoundingClientRect();
+      const overlapsNavStrip = r.top < NAV_HEIGHT && r.bottom > 0;
+      setOverDarkSection(overlapsNavStrip);
+    };
+
+    updateOverlap();
+    window.addEventListener("scroll", updateOverlap, { passive: true });
+    window.addEventListener("resize", updateOverlap);
+    return () => {
+      window.removeEventListener("scroll", updateOverlap);
+      window.removeEventListener("resize", updateOverlap);
+    };
   }, []);
 
   const closeMenu = useCallback(() => {
@@ -65,8 +91,14 @@ export default function Navbar() {
     >
       <div
         className={cn(
-          "relative z-30 flex h-[72px] w-full items-center border-b border-forest/10 bg-cream/92 backdrop-blur-xl transition-shadow duration-300",
-          scrolled && "shadow-[0_4px_24px_rgba(0,0,0,0.08)]",
+          "relative z-30 flex h-[72px] w-full items-center border-b backdrop-blur-xl transition-[background-color,border-color,box-shadow,color] duration-300",
+          overDarkSection
+            ? "border-white/15 bg-forest/88 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
+            : "border-forest/10 bg-cream/92",
+          scrolled &&
+            !overDarkSection &&
+            "shadow-[0_4px_24px_rgba(0,0,0,0.08)]",
+          scrolled && overDarkSection && "shadow-[0_8px_36px_rgba(0,0,0,0.28)]",
         )}
       >
         <div
@@ -82,6 +114,10 @@ export default function Navbar() {
                 height={54}
                 priority
                 alt="Logo Nathália Machado Fonoaudióloga"
+                imgClassName={cn(
+                  "transition-[filter] duration-300",
+                  overDarkSection && "brightness-0 invert",
+                )}
               />
             </div>
           </div>
@@ -96,8 +132,12 @@ export default function Navbar() {
                   className={cn(
                     "rounded-pill px-3.5 py-2 text-[0.8rem] font-medium tracking-wide transition-all duration-200",
                     link.isCta
-                      ? "ml-2 bg-forest text-white hover:bg-forest-light"
-                      : "text-ink-muted hover:bg-sage-pale hover:text-forest",
+                      ? overDarkSection
+                        ? "ml-2 bg-white text-forest shadow-sm hover:bg-cream hover:text-ink"
+                        : "ml-2 bg-forest text-white hover:bg-forest-light"
+                      : overDarkSection
+                        ? "text-white/90 hover:bg-white/12 hover:text-white"
+                        : "text-ink-muted hover:bg-sage-pale hover:text-forest",
                   )}
                 >
                   {link.label}
@@ -116,19 +156,22 @@ export default function Navbar() {
           >
             <span
               className={cn(
-                "block h-0.5 w-6 rounded-sm bg-ink transition-transform duration-300",
+                "block h-0.5 w-6 rounded-sm transition-transform duration-300",
+                overDarkSection ? "bg-white" : "bg-ink",
                 menuOpen && "translate-y-[7px] rotate-45",
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 rounded-sm bg-ink transition-opacity duration-300",
+                "block h-0.5 w-6 rounded-sm transition-opacity duration-300",
+                overDarkSection ? "bg-white" : "bg-ink",
                 menuOpen && "opacity-0",
               )}
             />
             <span
               className={cn(
-                "block h-0.5 w-6 rounded-sm bg-ink transition-transform duration-300",
+                "block h-0.5 w-6 rounded-sm transition-transform duration-300",
+                overDarkSection ? "bg-white" : "bg-ink",
                 menuOpen && "-translate-y-[7px] -rotate-45",
               )}
             />

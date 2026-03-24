@@ -5,11 +5,10 @@ export const WHATSAPP_AGENDAMENTO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=O
 export const INSTAGRAM_URL = "https://www.instagram.com/fononamachado";
 export const INSTAGRAM_HANDLE = "@fononamachado";
 
-export const MAPS_URL =
-  "https://www.google.com/maps/place/Nath%C3%A1lia+Machado+-+Fonoaudi%C3%B3loga/@-23.8787241,-47.9948579,17z/";
+export const MAPS_URL = "https://maps.app.goo.gl/VR8cpWSdMjEnzdDD7";
 
 export const MAPS_EMBED_SRC =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3658.5!2d-47.9948579!3d-23.8787241!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5af83e8bac7ef%3A0xb28f528471b04b1d!2sNath%C3%A1lia%20Machado%20-%20Fonoaudi%C3%B3loga!5e0!3m2!1spt!2sbr!4v1";
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.5876547636517!2d-47.99495039999999!3d-23.878704499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5af83e8bac7ef%3A0xb28f528471b04b1d!2sNath%C3%A1lia%20Machado%20-%20Fonoaudi%C3%B3loga%20%7C%20Fonoaudiologia%20em%20S%C3%A3o%20Miguel%20Arcanjo!5e1!3m2!1sen!2sbr!4v1774325707743!5m2!1sen!2sbr";
 
 export const EMAIL = "fononamachado@gmail.com";
 export const PHONE_DISPLAY = "(15) 99666-1683";

@@ -1,4 +1,5 @@
 import SiteContainer from "@/components/layout/SiteContainer";
+import { Reveal, StaggerItem, StaggerList } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GoldRule from "@/components/ui/GoldRule";
 import MobileCardCarousel from "@/components/ui/MobileCardCarousel";
@@ -103,17 +104,18 @@ export default function AreasSection() {
       )}
     >
       <SiteContainer>
-        <SectionLabel>Especialidades</SectionLabel>
-        <h2
-          id="areas-titulo"
-          className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] font-light leading-[1.15] text-ink"
-        >
-          Áreas de <span className="text-forest italic">Atuação</span>
-        </h2>
-        <GoldRule className="mx-auto" />
+        <Reveal className="text-center">
+          <SectionLabel>Especialidades</SectionLabel>
+          <h2
+            id="areas-titulo"
+            className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] font-light leading-[1.15] text-ink"
+          >
+            Áreas de <span className="text-forest italic">Atuação</span>
+          </h2>
+          <GoldRule className="mx-auto" />
+        </Reveal>
 
-        {/* Mobile: carrossel — um foco por vez */}
-        <div className="mt-8 md:hidden">
+        <Reveal className="mt-8 md:hidden" delay={0.06}>
           <MobileCardCarousel
             variant="areas"
             ariaLabel="Especialidades e áreas de atuação"
@@ -121,16 +123,18 @@ export default function AreasSection() {
               <AreaCardView key={area.title} area={area} carousel="areas" />
             ))}
           />
-        </div>
+        </Reveal>
 
-        {/* Tablet + desktop: grade */}
-        <ul className="mt-10 hidden list-none gap-4 md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5">
+        <StaggerList
+          as="ul"
+          className="mt-10 hidden list-none gap-4 md:grid md:grid-cols-2 md:gap-5 lg:grid-cols-3 lg:gap-5"
+        >
           {AREAS.map((area) => (
-            <li key={area.title}>
+            <StaggerItem key={area.title}>
               <AreaCardView area={area} />
-            </li>
+            </StaggerItem>
           ))}
-        </ul>
+        </StaggerList>
       </SiteContainer>
     </section>
   );
