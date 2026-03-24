@@ -32,7 +32,7 @@ export default function HeroSection() {
         <h1 className="animate-fade-up animation-delay-200 font-serif text-[clamp(3rem,5vw,5.5rem)] font-light leading-[1.05] text-ink mb-2">
           Nathália
           <br />
-          <em className="not-italic italic text-forest">Machado</em>
+          <em className="not-italic text-forest">Machado</em>
         </h1>
 
         <GoldRule className="animate-fade-up animation-delay-300" />

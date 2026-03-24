@@ -1,13 +1,13 @@
-import type { Metadata } from 'next'
-import Image from 'next/image'
-import Link from 'next/link'
-import ValoresCard from '@/components/cadastro/ValoresCard'
-import FormCadastro from '@/components/cadastro/FormCadastro'
+import type { Metadata } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import ValoresCard from "@/components/cadastro/ValoresCard";
+import FormCadastro from "@/components/cadastro/FormCadastro";
 
 export const metadata: Metadata = {
-  title: 'Cadastro de Paciente — Nathália Machado Fonoaudióloga',
+  title: "Cadastro de Paciente — Nathália Machado Fonoaudióloga",
   robots: { index: false, follow: false },
-}
+};
 
 const ChevronLeft = () => (
   <svg
@@ -23,7 +23,7 @@ const ChevronLeft = () => (
   >
     <polyline points="15 18 9 12 15 6" />
   </svg>
-)
+);
 
 export default function CadastroPage() {
   return (
@@ -55,12 +55,13 @@ export default function CadastroPage() {
           Fono na Machado
         </p>
         <h1 className="font-serif text-[clamp(2rem,4vw,3rem)] font-light text-white tracking-wide">
-          Ficha de <em className="not-italic italic text-honey-light">Cadastro</em>
+          Ficha de <em className="not-italictext-honey-light">Cadastro</em>
         </h1>
         <p className="text-[0.9rem] text-white/65 font-light mt-3 leading-[1.7] max-w-lg mx-auto">
           Preencha os dados abaixo para formalizar seu atendimento.
           <br />
-          As informações serão utilizadas para emissão de nota fiscal e organização dos atendimentos.
+          As informações serão utilizadas para emissão de nota fiscal e
+          organização dos atendimentos.
         </p>
         <div className="w-12 h-px bg-honey mx-auto mt-5" />
       </div>
@@ -73,5 +74,5 @@ export default function CadastroPage() {
         <FormCadastro />
       </div>
     </>
-  )
+  );
 }
