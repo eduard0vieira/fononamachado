@@ -65,6 +65,8 @@ export default function Footer() {
           © 2026 Nathália Machado · Fonoaudióloga · CRFa 2-23700
           <br />
           <span className="text-ink-muted/75">São Miguel Arcanjo — SP</span>
+          <br />
+          <span className="text-ink-muted/75">Nathalia Machado Vieira de Oliveira Ltda · CNPJ 65.304.270/0001-31</span>
         </p>
         </Reveal>
       </SiteContainer>
