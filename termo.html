@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Termos de Atendimento – Nathália Machado Fonoaudióloga</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sage: #8a9e7e;
+    --sage-light: #b8c9af;
+    --sage-dark: #5e7252;
+    --cream: #faf8f0;
+    --cream-dark: #f0ede4;
+    --gold: #c9a96e;
+    --gold-light: #e2c99a;
+    --ink: #2e2a24;
+    --ink-soft: #5a5248;
+    --white: #fdfaf6;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background-color: var(--cream);
+    color: var(--ink);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    overflow-x: hidden;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    background-color: var(--sage-dark);
+    overflow: hidden;
+    padding: 20px 40px 18px;
+    text-align: center;
+  }
+
+  .hero-logo {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 28px;
+  }
+
+  .hero h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(26px, 5vw, 42px);
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .hero .crfa {
+    font-family: 'Jost', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+
+  .hero-subtitle {
+    position: relative;
+    z-index: 1;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(13px, 2.5vw, 17px);
+    font-style: italic;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 0.12em;
+    margin-top: 16px;
+  }
+
+  /* DOC TITLE BAND */
+  .doc-title-band {
+    background: var(--cream-dark);
+    border-top: 3px solid var(--gold);
+    border-bottom: 1px solid var(--sage-light);
+    padding: 28px 40px;
+    text-align: center;
+  }
+
+  .doc-title-band h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(20px, 4vw, 30px);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .doc-title-band .update {
+    font-size: 11.5px;
+    letter-spacing: 0.18em;
+    color: var(--ink-soft);
+    text-transform: uppercase;
+    margin-top: 6px;
+  }
+
+  /* MAIN LAYOUT */
+  .container {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+
+  /* SECTION */
+  .section {
+    margin-bottom: 56px;
+    opacity: 0;
+    transform: translateY(22px);
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .section:nth-child(1)  { animation-delay: 0.1s; }
+  .section:nth-child(2)  { animation-delay: 0.18s; }
+  .section:nth-child(3)  { animation-delay: 0.26s; }
+  .section:nth-child(4)  { animation-delay: 0.34s; }
+  .section:nth-child(5)  { animation-delay: 0.42s; }
+  .section:nth-child(6)  { animation-delay: 0.50s; }
+  .section:nth-child(7)  { animation-delay: 0.58s; }
+  .section:nth-child(8)  { animation-delay: 0.66s; }
+  .section:nth-child(9)  { animation-delay: 0.74s; }
+  .section:nth-child(10) { animation-delay: 0.82s; }
+  .section:nth-child(11) { animation-delay: 0.90s; }
+  .section:nth-child(12) { animation-delay: 0.98s; }
+  .section:nth-child(13) { animation-delay: 1.06s; }
+  .section:nth-child(14) { animation-delay: 1.14s; }
+  .section:nth-child(15) { animation-delay: 1.22s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 18px;
+  }
+
+  .section-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-style: italic;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    white-space: nowrap;
+    padding-top: 2px;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(17px, 3vw, 21px);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage-dark);
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, var(--sage-light), transparent);
+  }
+
+  .section-body {
+    padding-left: 4px;
+  }
+
+  .section-body p {
+    font-size: 15px;
+    color: var(--ink-soft);
+    margin-bottom: 10px;
+    line-height: 1.9;
+  }
+
+  .section-body p:last-child { margin-bottom: 0; }
+
+  .section-body ul {
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+  }
+
+  .section-body ul li {
+    font-size: 15px;
+    color: var(--ink-soft);
+    padding: 5px 0 5px 22px;
+    position: relative;
+    line-height: 1.8;
+  }
+
+  .section-body ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    border: 1.5px solid var(--gold);
+  }
+
+  /* HIGHLIGHT CARD */
+  .highlight-card {
+    background: var(--white);
+    border-left: 3px solid var(--gold);
+    border-radius: 2px;
+    padding: 20px 24px;
+    margin: 16px 0;
+    box-shadow: 0 2px 16px rgba(90,82,72,0.06);
+  }
+
+  .highlight-card .label {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 500;
+    margin-bottom: 6px;
+    font-family: 'Jost', sans-serif;
+  }
+
+  .highlight-card .value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+
+  .highlight-card .desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    margin-top: 4px;
+    line-height: 1.7;
+  }
+
+  .cards-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+
+  /* PAYMENT PILLS */
+  .payment-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--white);
+    border: 1px solid var(--sage-light);
+    border-radius: 40px;
+    padding: 8px 18px;
+    font-size: 13.5px;
+    color: var(--sage-dark);
+    font-weight: 400;
+    letter-spacing: 0.04em;
+  }
+
+  .pill-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--sage);
+  }
+
+  /* ALERT BOX */
+  .alert-box {
+    background: linear-gradient(135deg, rgba(138,158,126,0.12), rgba(201,169,110,0.08));
+    border: 1px solid var(--sage-light);
+    border-radius: 4px;
+    padding: 18px 22px;
+    margin: 14px 0;
+  }
+
+  .alert-box p {
+    font-size: 14px !important;
+    color: var(--ink) !important;
+  }
+
+  /* DIVIDER */
+  .section-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 48px 0 56px;
+  }
+
+  .section-divider::before,
+  .section-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--cream-dark);
+  }
+
+  .section-divider-ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--gold);
+    letter-spacing: 0.3em;
+  }
+
+  /* ACEITE FINAL */
+  .aceite-block {
+    background: var(--sage-dark);
+    border-radius: 6px;
+    padding: 36px 40px;
+    text-align: center;
+    margin-top: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .aceite-block .ornament {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold-light);
+    letter-spacing: 0.18em;
+    margin-bottom: 16px;
+  }
+
+  .aceite-block h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--white);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .aceite-block p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    max-width: 560px;
+    margin: 0 auto;
+    line-height: 1.9;
+  }
+
+  .aceite-block .aceite-line {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 20px auto 0;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--cream-dark);
+    border-top: 1px solid var(--sage-light);
+    padding: 28px 32px;
+    text-align: center;
+  }
+
+  footer .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    letter-spacing: 0.1em;
+  }
+
+  footer .footer-crfa {
+    font-size: 12.5px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  footer .footer-contact {
+    margin-top: 12px;
+    font-size: 14px;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+  }
+
+  footer .footer-legal {
+    margin-top: 6px;
+    padding-top: 0;
+    font-size: 13px;
+    color: var(--ink-soft);
+    letter-spacing: 0.03em;
+    line-height: 1.9;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 560px) {
+    .container { padding: 40px 20px 60px; }
+    .hero { padding: 60px 24px 50px; }
+    .cards-row { grid-template-columns: 1fr; }
+    .aceite-block { padding: 30px 24px; }
+    .doc-title-band { padding: 22px 24px; }
+  }
+
+  /* WATERMARK */
+  .watermark {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    max-width: 80vw;
+    opacity: 0.035;
+    pointer-events: none;
+    z-index: 0;
+    user-select: none;
+  }
+
+  .watermark img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(100%);
+  }
+</style>
+</head>
+<body>
+<div class="watermark"><img src="images/watermark.png" alt="" /></div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-logo">
+    <img src="images/fono2.png" alt="Logo Nathália Machado Fonoaudióloga" style="max-width: 400px; height: auto;">
+  </div>
+</header>
+
+<!-- DOC TITLE -->
+<div class="doc-title-band">
+  <h2>Termos de Atendimento Fonoaudiológico</h2>
+  <p class="update">Última atualização: Março de 2026</p>
+</div>
+
+<!-- CONTENT -->
+<main class="container">
+
+  <!-- 1. SOBRE OS ATENDIMENTOS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">01.</span>
+      <span class="section-title">Sobre os Atendimentos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Os atendimentos são realizados pela fonoaudióloga <strong>Nathália Machado Vieira de Oliveira</strong>, formada pela Universidade de Sorocaba, com atuação nas áreas de:</p>
+      <ul>
+        <li>Linguagem infantil e adulta;</li>
+        <li>Motricidade orofacial;</li>
+        <li>Disfagia em adultos.</li>
+      </ul>
+      <p>Cada atendimento possui duração média de <strong>45 minutos</strong> e é conduzido de forma individual, com base em avaliação detalhada e plano terapêutico personalizado, respeitando as necessidades de cada paciente e família.</p>
+      <p>A frequência <strong>semanal</strong> é recomendada, pois a constância é um fator essencial para o progresso terapêutico. A frequência poderá, no entanto, ser definida ou ajustada conforme avaliação clínica e evolução terapêutica do paciente.</p>
+      <p>Em situações específicas, especialmente quando a família não consegue manter a frequência semanal, o acompanhamento é ajustado da melhor forma possível, respeitando a realidade familiar, sem perder de vista os objetivos terapêuticos.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 2. RESERVA DE HORÁRIO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">02.</span>
+      <span class="section-title">Reserva de Horário</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Nos atendimentos semanais, o paciente possui um <strong>horário exclusivo</strong> reservado na agenda da profissional. A manutenção desse horário fixo depende da continuidade do acompanhamento e do cumprimento das condições estabelecidas nestes termos.</p>
+      <div class="alert-box">
+        <p>Por esse motivo, <strong>faltas e cancelamentos sem aviso prévio</strong> impactam diretamente na organização da agenda e no atendimento de outros pacientes.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 3. VALORES DAS SESSÕES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">03.</span>
+      <span class="section-title">Valores das Sessões</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Os valores dos atendimentos serão informados previamente ao responsável e poderão sofrer reajustes mediante comunicação prévia.</p>
+      <p>O valor vigente na data do atendimento será considerado como referência para cobrança.</p>
+      <p>Os valores se aplicam a <strong>todos os atendimentos</strong>, incluindo anamnese, avaliação e sessões terapêuticas.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 4. FORMAS DE PAGAMENTO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">04.</span>
+      <span class="section-title">Formas de Pagamento</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Os pagamentos poderão ser realizados por <strong>Pix</strong>, <strong>dinheiro</strong> ou <strong>cartão</strong>, de acordo com a preferência do responsável.</p>
+      <p>O responsável poderá optar por uma das modalidades de periodicidade:</p>
+      <div class="cards-row" style="margin-top:10px;">
+        <div class="highlight-card">
+          <div class="label">Pagamento por sessão</div>
+          <div class="desc" style="font-size:14px;">Realizado até o dia da sessão.</div>
+        </div>
+        <div class="highlight-card">
+          <div class="label">Pagamento mensal</div>
+          <div class="desc" style="font-size:14px;">Em data fixa acordada. O responsável pode optar por incluir todas as sessões do mês, inclusive em meses com 5 atendimentos, ou limitar a no máximo 4 sessões mensais.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 5. FALTAS E CANCELAMENTOS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">05.</span>
+      <span class="section-title">Faltas e Cancelamentos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Imprevistos podem acontecer, por isso solicitamos atenção às regras de organização da agenda.</p>
+      <ul>
+        <li>Cancelamentos realizados com <strong>mínimo de 12 horas de antecedência</strong> não serão cobrados;</li>
+        <li>Cancelamentos realizados fora desse prazo serão cobrados normalmente;</li>
+        <li>Faltas sem aviso prévio não geram reposição;</li>
+        <li>A partir de <strong>duas faltas consecutivas</strong> sem aviso, o paciente poderá ter seu atendimento encerrado, com risco de perda do horário reservado.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 6. ATRASOS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">06.</span>
+      <span class="section-title">Atrasos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Em caso de atraso do paciente, o atendimento será realizado <strong>dentro do tempo restante</strong> da sessão.</p>
+      <p>O tempo perdido não será compensado ao final do atendimento.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 7. REPOSIÇÃO DE SESSÕES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">07.</span>
+      <span class="section-title">Reposição de Sessões</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Sessões canceladas dentro do prazo poderão ser repostas dentro de até <strong>30 dias</strong>, conforme disponibilidade de horário na agenda.</p>
+      <div class="alert-box">
+        <p>Caso não haja horário disponível para reposição dentro desse prazo, o valor da sessão poderá ser utilizado como <strong>crédito no mês seguinte</strong>, reduzindo o valor do pagamento do período. Esse crédito não é cumulativo para períodos posteriores e não será convertido em reembolso.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 8. AUSÊNCIA PROLONGADA -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">08.</span>
+      <span class="section-title">Ausência Prolongada</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Caso o paciente precise se ausentar por período prolongado (viagens, férias ou outras situações), poderá solicitar uma <strong>pausa temporária</strong> no atendimento, desde que comunique com mínimo de <strong>30 dias de antecedência</strong>.</p>
+      <p>Será possível manter a vaga reservada por até <strong>30 dias de ausência</strong>. Períodos superiores poderão resultar na liberação do horário para outros pacientes.</p>
+      <div class="alert-box">
+        <p>Essa possibilidade poderá ser utilizada <strong>uma vez a cada 12 meses</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 9. ATRASO DE PAGAMENTO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">09.</span>
+      <span class="section-title">Atraso de Pagamento</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Pagamentos realizados após a data combinada poderão sofrer:</p>
+      <ul>
+        <li>Multa de <strong>2%</strong>;</li>
+        <li>Juros de <strong>1% ao mês</strong>.</li>
+      </ul>
+      <p>Em caso de atraso recorrente poderá ocorrer:</p>
+      <ul>
+        <li>Suspensão temporária dos atendimentos;</li>
+        <li>Perda do horário reservado na agenda.</li>
+      </ul>
+      <div class="alert-box">
+        <p>Caso existam mais de <strong>5 sessões com pagamento pendente</strong>, novos atendimentos poderão deixar de ser agendados até regularização da situação.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 10. NOTA FISCAL -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">10.</span>
+      <span class="section-title">Nota Fiscal</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>A nota fiscal será emitida em até <strong>3 dias úteis</strong> após a confirmação do pagamento, respeitando o mês de competência da prestação do serviço.</p>
+      <p>Por padrão, a nota fiscal será emitida com o <strong>nome e CPF do responsável financeiro</strong>. Caso o responsável deseje incluir também telefone e endereço, deverá solicitar expressamente essa inclusão, pois essas informações só serão inseridas mediante solicitação.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 11. REAJUSTE DE VALORES -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">11.</span>
+      <span class="section-title">Reajuste de Valores</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Os valores poderão ser reajustados <strong>anualmente</strong>, mediante comunicação prévia de <strong>60 dias</strong> aos responsáveis.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 12. USO DE IMAGEM E VOZ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">12.</span>
+      <span class="section-title">Uso de Imagem e Voz</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>O responsável autoriza a gravação de imagem e voz do paciente durante sessões de avaliação e/ou tratamento, exclusivamente para:</p>
+      <ul>
+        <li>Análise clínica;</li>
+        <li>Acompanhamento terapêutico;</li>
+        <li>Desenvolvimento do tratamento.</li>
+      </ul>
+      <p>As gravações são destinadas apenas ao <strong>uso interno</strong>, não sendo utilizadas para divulgação pública em redes sociais, sites ou qualquer outro meio de comunicação.</p>
+      <p>Esta autorização poderá ser <strong>revogada a qualquer momento</strong> mediante solicitação formal realizada via WhatsApp.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 13. COMUNICAÇÃO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">13.</span>
+      <span class="section-title">Comunicação</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>As comunicações relacionadas a agendamentos, cancelamentos, orientações administrativas e atualização destes termos serão realizadas preferencialmente via <strong>WhatsApp</strong>.</p>
+      <p>Solicitamos que o responsável mantenha seus dados de contato atualizados para garantir o recebimento de todas as informações relevantes ao acompanhamento.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 14. NÃO GARANTIA DE RESULTADO -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">14.</span>
+      <span class="section-title">Sobre a Evolução Terapêutica</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>O acompanhamento fonoaudiológico é realizado com base em critérios técnicos e científicos, com dedicação e comprometimento em cada etapa do tratamento.</p>
+      <p>No entanto, a evolução terapêutica depende de fatores individuais de cada paciente, como histórico clínico, engajamento nas atividades propostas, adesão ao tratamento e o apoio do ambiente familiar. A participação ativa da família é fundamental para reforçar os estímulos, orientar rotinas e contribuir para a continuidade do processo terapêutico fora das sessões. Por esse motivo, <strong>não é possível garantir resultados em prazo determinado</strong>.</p>
+      <p>O plano terapêutico é construído de forma personalizada e revisado continuamente, sempre com o objetivo de oferecer o melhor acompanhamento possível.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 15. ATUALIZAÇÃO DOS TERMOS -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-number">15.</span>
+      <span class="section-title">Atualização dos Termos</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="section-body">
+      <p>Estes Termos de Atendimento poderão ser atualizados sempre que necessário, para melhorar a organização dos atendimentos ou realizar adequações administrativas.</p>
+      <p>Em caso de alterações relevantes, os responsáveis serão comunicados previamente via <strong>WhatsApp</strong>. A continuidade dos atendimentos após a comunicação será considerada como aceite das novas condições.</p>
+    </div>
+  </div>
+
+  <div class="section-divider"><span class="section-divider-ornament">✦</span></div>
+
+  <!-- 16. ACEITE DOS TERMOS -->
+  <div class="aceite-block">
+    <p class="ornament">aceite dos termos</p>
+    <h3>16. Aceite dos Termos</h3>
+    <p>O responsável declara ter tido acesso prévio a estes termos antes do início ou continuidade do atendimento, e que o envio de dados para cadastro, confirmação de agendamento, realização de pagamento ou continuidade dos atendimentos caracteriza ciência e concordância com todas as condições aqui estabelecidas.</p>
+    <div class="aceite-line"></div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-name">Nathália Machado Vieira de Oliveira</div>
+  <div class="footer-crfa">CRFa 2-23700</div>
+  <div class="footer-legal">
+    <div>R. Miguel Terra, 385 - Centro, São Miguel Arcanjo - SP, 18230-019, Brasil</div>
+    <div>Nathalia Machado Vieira de Oliveira Ltda · CNPJ 65.304.270/0001-31</div>
+    <div style="margin-top:8px;">
+      <a href="https://wa.me/5515996661683" target="_blank" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--sage-light);">(15) 99666-1683</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:fononamachado@gmail.com" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--sage-light);">fononamachado@gmail.com</a>
+      &nbsp;·&nbsp;
+      <a href="https://www.instagram.com/FONONAMACHADO" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;border-bottom:1px solid var(--sage-light);">@fononamachado</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
