@@ -1,10 +1,10 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { WHATSAPP_AGENDAMENTO_URL } from "@/lib/constants";
+import Logo from "@/components/ui/Logo";
 import type { NavLink } from "@/types";
 
 const NAV_LINKS: NavLink[] = [
@@ -51,21 +51,12 @@ export default function Navbar() {
       )}
       aria-label="Navegação principal"
     >
-      {/* Logo */}
-      <Link
-        href="/"
+      <Logo
+        height={72}
+        priority
+        alt="Logo Nathália Machado Fonoaudióloga"
         className="flex-shrink-0"
-        aria-label="Nathália Machado Fonoaudióloga"
-      >
-        <Image
-          src="/images/logo.png"
-          alt="Logo Nathália Machado Fonoaudióloga"
-          width={160}
-          height={72}
-          className="h-[72px] w-auto object-contain"
-          priority
-        />
-      </Link>
+      />
 
       {/* Desktop links */}
       <ul className="hidden md:flex items-center gap-1 list-none">

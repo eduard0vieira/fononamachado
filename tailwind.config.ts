@@ -25,6 +25,8 @@ const config: Config = {
         cream: {
           DEFAULT: '#FAFAF7',
           alt: '#F3F0EA',
+          /** Fundo hero — tom quente próximo ao #FAF7F2 */
+          warm: '#FAF7F2',
         },
         ink: {
           DEFAULT: '#1A201D',

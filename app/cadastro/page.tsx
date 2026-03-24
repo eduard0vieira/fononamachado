@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import ValoresCard from "@/components/cadastro/ValoresCard";
 import FormCadastro from "@/components/cadastro/FormCadastro";
+import Logo from "@/components/ui/Logo";
 
 export const metadata: Metadata = {
   title: "Cadastro de Paciente — Nathália Machado Fonoaudióloga",
@@ -30,16 +30,7 @@ export default function CadastroPage() {
     <>
       {/* Sub-nav */}
       <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-[5%] h-[72px] bg-cream/92 backdrop-blur-xl border-b border-forest/10">
-        <Link href="/" aria-label="Nathália Machado Fonoaudióloga">
-          <Image
-            src="/images/logo.png"
-            alt="Logo"
-            width={160}
-            height={72}
-            className="h-[72px] w-auto object-contain"
-            priority
-          />
-        </Link>
+        <Logo height={72} priority alt="Logo" className="flex-shrink-0" />
         <Link
           href="/"
           className="inline-flex items-center gap-2 text-[0.78rem] font-medium tracking-[0.12em] uppercase text-ink-muted hover:text-forest transition-colors"

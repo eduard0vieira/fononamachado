@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import Logo from "@/components/ui/Logo";
 import { WHATSAPP_URL, EMAIL, INSTAGRAM_URL, ADDRESS } from "@/lib/constants";
 
 export const metadata: Metadata = {
@@ -71,14 +71,8 @@ export default function TermoPage() {
     <>
       {/* Header */}
       <div className="bg-forest px-10 pt-5 pb-5 text-center">
-        <div className="mb-7">
-          <Image
-            src="/images/logo.png"
-            alt="Nathália Machado Fonoaudióloga"
-            width={160}
-            height={80}
-            className="h-20 w-auto object-contain mx-auto"
-          />
+        <div className="mb-7 flex justify-center">
+          <Logo height={80} linked={false} />
         </div>
         <h1 className="font-serif text-[clamp(26px,5vw,42px)] font-normal text-white tracking-[0.08em] uppercase leading-[1.2]">
           Nathália Machado

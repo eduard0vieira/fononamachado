@@ -1,11 +1,11 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
-import GoldRule from "@/components/ui/GoldRule";
 import {
   WHATSAPP_AGENDAMENTO_URL,
   INSTAGRAM_URL,
   INSTAGRAM_HANDLE,
 } from "@/lib/constants";
+import { cn } from "@/lib/utils";
 
 const WhatsAppIcon = () => (
   <svg
@@ -32,77 +32,119 @@ const InstagramIcon = () => (
   </svg>
 );
 
-export default function HeroSection() {
+/** Badge estilo referência: borda fina, fundo translúcido, tipografia pequena em caixa alta */
+function HeroBadge({ children }: { children: React.ReactNode }) {
   return (
-    <section
-      className="grid grid-cols-1 md:grid-cols-2 min-h-screen pt-[72px]"
-      id="home"
-      aria-label="Apresentação"
+    <span
+      className={cn(
+        "animate-fade-up animation-delay-100 inline-flex w-fit items-center rounded-pill",
+        "border border-stone-300/80 bg-white/70 px-4 py-2 backdrop-blur-sm",
+        "text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-ink-muted",
+      )}
     >
-      {/* Left */}
-      <div className="bg-cream flex flex-col justify-center px-[8%] py-20 md:order-1 order-2">
-        <span className="animate-fade-up animation-delay-100 inline-flex items-center gap-2 w-fit text-[0.7rem] font-semibold tracking-[0.1em] uppercase text-forest bg-sage-pale px-3.5 py-1.5 rounded-pill mb-7">
-          Fonoaudióloga · CRFa 2-23700
-        </span>
+      {children}
+    </span>
+  );
+}
 
-        <h1 className="animate-fade-up animation-delay-200 font-serif text-[clamp(3rem,5vw,5.5rem)] font-light leading-[1.05] text-ink mb-2">
-          Nathália
-          <br />
-          <em className="not-italic text-forest">Machado</em>
-        </h1>
-
-        <GoldRule className="animate-fade-up animation-delay-300" />
-
-        <p className="animate-fade-up animation-delay-400 text-[1rem] font-light leading-[1.85] text-ink-muted max-w-[440px] mb-2.5">
-          Atendimento humanizado em Linguagem Adulto e Infantil, Motricidade
-          Orofacial e Disfagia, guiado pelo cuidado, escuta e respeito às
-          necessidades de cada pessoa.
-        </p>
-
-        <span className="animate-fade-up animation-delay-450 text-[0.74rem] tracking-wide text-ink-muted mb-9">
-          São Miguel Arcanjo — SP
-        </span>
-
-        <div className="animate-fade-up animation-delay-550 flex flex-wrap gap-3">
-          <Button
-            as="link"
-            variant="primary"
-            href={WHATSAPP_AGENDAMENTO_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Agendar pelo WhatsApp"
-          >
-            <WhatsAppIcon />
-            WhatsApp
-          </Button>
-
-          <Button
-            as="link"
-            variant="secondary"
-            href={INSTAGRAM_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <InstagramIcon />
-            {INSTAGRAM_HANDLE}
-          </Button>
-        </div>
-      </div>
-
-      {/* Right — photo */}
+/** Retrato circular com sombra suave (elevado do fundo) */
+function HeroPortrait() {
+  return (
+    <div className="relative mx-auto flex w-full max-w-[min(92vw,460px)] justify-center md:mx-0 md:max-w-none md:justify-end">
       <div
-        className="relative overflow-hidden bg-forest md:order-2 order-1 min-h-[320px] md:min-h-0"
-        aria-hidden="true"
+        className={cn(
+          "relative aspect-square w-[min(88vw,320px)] sm:w-[min(80vw,380px)] lg:w-[min(42vw,440px)]",
+          "overflow-hidden rounded-full bg-cream-alt",
+          "shadow-[0_28px_64px_-18px_rgba(38,77,59,0.28),0_12px_24px_-12px_rgba(0,0,0,0.08)]",
+          "ring-1 ring-stone-900/[0.06]",
+        )}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-forest via-[#4a8a6e] to-sage opacity-90" />
         <Image
           src="/images/nathalia.png"
           alt="Nathália Machado Fonoaudióloga"
           fill
-          className="object-contain object-bottom"
+          className="object-cover object-[center_12%] scale-[1.08] sm:scale-105"
           priority
-          sizes="(max-width: 768px) 100vw, 50vw"
+          sizes="(max-width: 640px) 320px, (max-width: 1024px) 380px, 440px"
         />
+      </div>
+    </div>
+  );
+}
+
+export default function HeroSection() {
+  return (
+    <section
+      id="home"
+      aria-label="Apresentação"
+      className={cn(
+        "relative flex min-h-[calc(100dvh-72px)] items-center bg-cream-warm",
+        "mt-[72px] px-6 sm:px-10 lg:px-14",
+      )}
+    >
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 py-14 md:grid-cols-2 md:gap-16 lg:gap-20 lg:py-20">
+        {/* Coluna texto — alinhada à esquerda, conteúdo verticalmente centrado */}
+        <div className="order-2 flex flex-col justify-center md:order-1">
+          <HeroBadge>Fonoaudióloga · CRFa 2-23700</HeroBadge>
+
+          <h1
+            className={cn(
+              "animate-fade-up animation-delay-200 mt-8 font-serif text-[clamp(2.75rem,6vw,4.25rem)] font-light leading-[1.02] tracking-tight text-ink",
+            )}
+          >
+            Nathália
+            <br />
+            <em className="not-italic text-forest">Machado</em>
+          </h1>
+
+          <p
+            className={cn(
+              "animate-fade-up animation-delay-300 mt-8 max-w-[28rem] text-[1.05rem] font-light leading-[1.82] text-ink-soft/90",
+            )}
+          >
+            Atendimento humanizado em Linguagem Adulto e Infantil, Motricidade
+            Orofacial e Disfagia, guiado pelo cuidado, escuta e respeito às
+            necessidades de cada pessoa.
+          </p>
+
+          <p className="animate-fade-up animation-delay-400 mt-5 text-sm font-normal tracking-wide text-ink-muted/85">
+            São Miguel Arcanjo — SP
+          </p>
+
+          <div className="animate-fade-up animation-delay-500 mt-10 flex flex-wrap gap-3">
+            <Button
+              as="link"
+              variant="primary"
+              href={WHATSAPP_AGENDAMENTO_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Agendar pelo WhatsApp"
+              className="rounded-xl px-7 py-3.5 shadow-md shadow-emerald-600/20"
+            >
+              <WhatsAppIcon />
+              WhatsApp
+            </Button>
+
+            <Button
+              as="link"
+              variant="secondary"
+              href={INSTAGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "rounded-xl border-stone-300/90 bg-white px-7 py-3.5 text-ink-soft",
+                "shadow-sm hover:border-stone-400 hover:bg-stone-50/90",
+              )}
+            >
+              <InstagramIcon />
+              {INSTAGRAM_HANDLE}
+            </Button>
+          </div>
+        </div>
+
+        <div className="order-1 md:order-2">
+          <HeroPortrait />
+        </div>
       </div>
     </section>
   );

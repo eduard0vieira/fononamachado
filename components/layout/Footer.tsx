@@ -1,16 +1,14 @@
-import Image from "next/image";
 import Link from "next/link";
 import { INSTAGRAM_URL } from "@/lib/constants";
+import Logo from "@/components/ui/Logo";
 
 export default function Footer() {
   return (
     <footer className="bg-ink flex items-center justify-between gap-6 flex-wrap px-[8%] py-9">
-      <Image
-        src="/images/logo.png"
-        alt="Nathália Machado Fonoaudióloga"
-        width={120}
+      <Logo
         height={36}
-        className="h-9 w-auto opacity-85"
+        linked={false}
+        imgClassName="opacity-85"
         loading="lazy"
       />
 
