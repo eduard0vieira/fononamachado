@@ -1,7 +1,6 @@
 import HeroSection from "@/components/sections/HeroSection";
 import SobreSection from "@/components/sections/SobreSection";
 import AreasSection from "@/components/sections/AreasSection";
-import PlanosSection from "@/components/sections/PlanosSection";
 import FaltasSection from "@/components/sections/FaltasSection";
 import LocalizacaoSection from "@/components/sections/LocalizacaoSection";
 
@@ -15,8 +14,6 @@ export default function HomePage() {
       <SobreSection />
       <Divider />
       <AreasSection />
-      <Divider />
-      <PlanosSection />
       <Divider />
       <FaltasSection />
       <Divider />

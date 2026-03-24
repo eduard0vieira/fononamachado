@@ -31,15 +31,6 @@ export interface AreaCard {
   description: string;
 }
 
-export interface PlanoCard {
-  nome: string;
-  valor: string | number;
-  moeda?: string;
-  period: string;
-  items: string[];
-  highlighted?: boolean;
-}
-
 export interface FaltaItem {
   number: number;
   text: string;

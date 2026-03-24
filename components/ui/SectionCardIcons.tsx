@@ -114,38 +114,3 @@ export function AreaCardIcon({
       return null;
   }
 }
-
-export function PlanoCheckIcon({ className }: IconBaseProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={cn("h-4 w-4 shrink-0", className)}
-      aria-hidden
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2.25}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
-  );
-}
-
-export function PaymentCardIcon({ className }: IconBaseProps) {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      className={cn("h-5 w-5 shrink-0", className)}
-      aria-hidden
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={1.5}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <rect x="2" y="5" width="20" height="14" rx="2" />
-      <path d="M2 10h20" />
-    </svg>
-  );
-}
