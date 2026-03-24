@@ -12,6 +12,7 @@ const NAV_LINKS: NavLink[] = [
   { label: "Áreas", href: "/#areas" },
   { label: "Planos", href: "/#planos" },
   { label: "Contato", href: "/#localizacao" },
+  { label: "Termos", href: "/termo" },
   {
     label: "Agendar",
     href: WHATSAPP_AGENDAMENTO_URL,
