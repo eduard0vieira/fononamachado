@@ -15,8 +15,6 @@ export const PHONE_DISPLAY = "(15) 99666-1683";
 export const ADDRESS = "R. Miguel Terra, 385 — Centro\nSão Miguel Arcanjo — SP";
 export const CRFA = "CRFa 2-23700";
 
-export const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyaSkeeU-IQqMcm6YiHjUgJDv2_OuoVyi3yYHiZ8p8PpTJJTb2WTNGL7qPSzFI0s4Pd/exec";
 
 export const VIACEP_URL = (cep: string) =>
   `https://viacep.com.br/ws/${cep.replace(/\D/g, "")}/json/`;

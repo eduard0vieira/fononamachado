@@ -76,6 +76,9 @@ export interface CadastroFormErrors {
   numero?: string;
   bairro?: string;
   cidade?: string;
+  benNome?: string;
+  benCpf?: string;
+  benNasc?: string;
   pagamento?: string;
   termos?: string;
 }

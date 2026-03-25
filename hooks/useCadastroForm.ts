@@ -9,7 +9,7 @@ import type {
 } from "@/types";
 import { maskCpf, maskPhone, maskCep } from "@/lib/masks";
 import { isRequiredFilled, isValidCpf, isValidCep } from "@/lib/validators";
-import { SCRIPT_URL, VIACEP_URL } from "@/lib/constants";
+import { VIACEP_URL } from "@/lib/constants";
 
 const INITIAL_DATA: CadastroFormData = {
   nome: "",
@@ -105,6 +105,19 @@ export function useCadastroForm() {
     [setField],
   );
 
+  const copyResponsavelToBen = useCallback(() => {
+    setData((prev) => ({
+      ...prev,
+      benNome: prev.nome,
+      benCpf: prev.cpf,
+    }));
+    setErrors((prev) => ({
+      ...prev,
+      benNome: undefined,
+      benCpf: undefined,
+    }));
+  }, []);
+
   const validate = useCallback((): boolean => {
     const newErrors: CadastroFormErrors = {};
 
@@ -116,6 +129,12 @@ export function useCadastroForm() {
     if (!isRequiredFilled(data.numero)) newErrors.numero = "Informe o número.";
     if (!isRequiredFilled(data.bairro)) newErrors.bairro = "Informe o bairro.";
     if (!isRequiredFilled(data.cidade)) newErrors.cidade = "Informe a cidade.";
+    if (!isRequiredFilled(data.benNome))
+      newErrors.benNome = "Informe o nome do beneficiário.";
+    if (!isValidCpf(data.benCpf))
+      newErrors.benCpf = "CPF do beneficiário inválido (11 dígitos).";
+    if (!data.benNasc)
+      newErrors.benNasc = "Informe a data de nascimento.";
     if (!data.pagamento)
       newErrors.pagamento = "Selecione uma modalidade de pagamento.";
     if (!data.termosAceitos)
@@ -156,8 +175,9 @@ export function useCadastroForm() {
 
       setSubmitting(true);
       try {
-        const res = await fetch(SCRIPT_URL, {
+        const res = await fetch("/api/cadastro", {
           method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload),
         });
         const json: ScriptResponse = await res.json();
@@ -165,7 +185,7 @@ export function useCadastroForm() {
           setSubmitted(true);
           window.scrollTo({ top: 0, behavior: "smooth" });
         } else {
-          throw new Error("Script returned error");
+          throw new Error(json.message ?? "Erro ao enviar cadastro");
         }
       } catch {
         alert(
@@ -187,6 +207,7 @@ export function useCadastroForm() {
     handleMaskedInput,
     handleCepChange,
     handlePaymentChange,
+    copyResponsavelToBen,
     handleSubmit,
   };
 }
