@@ -5,6 +5,10 @@ export const WHATSAPP_AGENDAMENTO_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=O
 export const INSTAGRAM_URL = "https://www.instagram.com/fononamachado";
 export const INSTAGRAM_HANDLE = "@fononamachado";
 
+/** Crédito no rodapé — desenvolvedor */
+export const DEVELOPER_INSTAGRAM_URL =
+  "https://www.instagram.com/eduard0vieira";
+
 export const MAPS_URL = "https://maps.app.goo.gl/VR8cpWSdMjEnzdDD7";
 
 export const MAPS_EMBED_SRC =

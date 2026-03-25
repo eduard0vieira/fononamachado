@@ -2,7 +2,7 @@ import Link from "next/link";
 import SiteContainer from "@/components/layout/SiteContainer";
 import { Reveal } from "@/components/motion";
 import Logo from "@/components/ui/Logo";
-import { INSTAGRAM_URL } from "@/lib/constants";
+import { DEVELOPER_INSTAGRAM_URL, INSTAGRAM_URL } from "@/lib/constants";
 import { siteEdgePadding } from "@/lib/siteLayout";
 import { cn } from "@/lib/utils";
 
@@ -61,15 +61,33 @@ export default function Footer() {
             aria-hidden="true"
           />
 
-          <p className="mt-8 text-center text-[0.7rem] font-light leading-relaxed tracking-wide text-ink-muted/90 sm:text-left">
-            © 2026 Nathália Machado · Fonoaudióloga · CRFa 2-23700
-            <br className="sm:hidden" />
-            <span className="hidden sm:inline"> · </span>
-            <span className="text-ink-muted/75">São Miguel Arcanjo — SP</span>
-            <br className="sm:hidden" />
-            <span className="hidden sm:inline"> · </span>
-            <span className="text-ink-muted/75">CNPJ 65.304.270/0001-31</span>
-          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between sm:gap-6">
+            <p className="text-center text-[0.7rem] font-light leading-relaxed tracking-wide text-ink-muted/90 sm:text-left">
+              © 2026 Nathália Machado · Fonoaudióloga · CRFa 2-23700
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> · </span>
+              <span className="text-ink-muted/75">São Miguel Arcanjo — SP</span>
+              <br className="sm:hidden" />
+              <span className="hidden sm:inline"> · </span>
+              <span className="text-ink-muted/75">CNPJ 65.304.270/0001-31</span>
+            </p>
+
+            <p className="shrink-0 text-right text-[0.80rem] font-light leading-relaxed tracking-wde text-ink-muted/45 sm:text-right">
+              desenvolvido com{" "}
+              <span className="text-honey/70" aria-label="coração">
+                ♥
+              </span>{" "}
+              por{" "}
+              <Link
+                href={DEVELOPER_INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-ink-muted/55 underline decoration-ink-muted/25 underline-offset-2 transition-colors hover:text-forest hover:decoration-forest/40"
+              >
+                @eduard0vieira
+              </Link>
+            </p>
+          </div>
         </Reveal>
       </SiteContainer>
     </footer>
