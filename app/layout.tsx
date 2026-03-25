@@ -21,7 +21,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Nathália Machado | Fonoaudióloga em São Miguel Arcanjo - SP",
+  title: "Nathália Machado | Fonoaudióloga",
   description:
     "Nathália Machado, Fonoaudióloga (CRFa 2-23700) em São Miguel Arcanjo - SP. Atendimentos em Linguagem Adulto e Infantil, Motricidade Orofacial e Disfagia. Agende sua consulta.",
   keywords: [
