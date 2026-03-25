@@ -127,6 +127,23 @@ const DocIcon = () => (
   </svg>
 );
 
+const CopyIcon = () => (
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <rect x="9" y="9" width="13" height="13" rx="2" />
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  </svg>
+);
+
 const SendIcon = () => (
   <svg
     width="18"
@@ -153,6 +170,7 @@ export default function FormCadastro() {
     handleMaskedInput,
     handleCepChange,
     handlePaymentChange,
+    copyResponsavelToBen,
     handleSubmit,
   } = useCadastroForm();
 
@@ -299,33 +317,47 @@ export default function FormCadastro() {
         subtitle="Quem irá receber o atendimento fonoaudiológico. Pode ser o próprio responsável ou outra pessoa."
         icon={<UsersIcon />}
       >
+        <button
+          type="button"
+          onClick={copyResponsavelToBen}
+          className={cn(
+            "mb-5 inline-flex items-center gap-2 rounded-lg border px-4 py-2.5 text-[0.82rem] font-medium tracking-wide transition-all duration-200",
+            data.benNome && data.benNome === data.nome
+              ? "border-forest/20 bg-forest/5 text-forest"
+              : "border-cream-alt bg-cream text-ink-muted hover:border-honey hover:bg-honey/5 hover:text-honey",
+          )}
+        >
+          <CopyIcon />
+          Responsável financeiro é o mesmo que o beneficiário
+        </button>
+
         <div className="grid gap-4">
-          <Field label="Nome completo do beneficiário" optional>
+          <Field label="Nome completo do beneficiário" required error={errors.benNome}>
             <input
               type="text"
               value={data.benNome}
               onChange={(e) => setField("benNome", e.target.value)}
               placeholder="Nome de quem receberá o atendimento"
-              className={fieldBase}
+              className={cn(fieldBase, errors.benNome && fieldError)}
             />
           </Field>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <Field label="CPF do beneficiário" optional>
+            <Field label="CPF do beneficiário" required error={errors.benCpf}>
               <input
                 type="text"
                 value={data.benCpf}
                 onChange={(e) => handleMaskedInput("benCpf", e.target.value)}
                 placeholder="000.000.000-00"
                 maxLength={14}
-                className={fieldBase}
+                className={cn(fieldBase, errors.benCpf && fieldError)}
               />
             </Field>
-            <Field label="Data de nascimento" optional>
+            <Field label="Data de nascimento" required error={errors.benNasc}>
               <input
                 type="date"
                 value={data.benNasc}
                 onChange={(e) => setField("benNasc", e.target.value)}
-                className={fieldBase}
+                className={cn(fieldBase, errors.benNasc && fieldError)}
               />
             </Field>
           </div>
