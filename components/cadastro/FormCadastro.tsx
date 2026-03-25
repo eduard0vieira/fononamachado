@@ -1,6 +1,7 @@
 "use client";
 
 import { useCadastroForm } from "@/hooks/useCadastroForm";
+import CadastroTermosExpandable from "@/components/cadastro/CadastroTermosExpandable";
 import { cn } from "@/lib/utils";
 
 const fieldBase =
@@ -442,6 +443,8 @@ export default function FormCadastro() {
 
       {/* 4. Termos */}
       <SectionCard title="Aceite dos Termos" icon={<DocIcon />}>
+        <CadastroTermosExpandable />
+
         <label
           className={cn(
             "flex items-start gap-3.5 p-5 rounded-lg cursor-pointer transition-all duration-200 border",
@@ -458,16 +461,20 @@ export default function FormCadastro() {
           />
           <p className="text-[0.85rem] font-light text-ink-soft leading-[1.6]">
             Declaro que li e estou de acordo com os{" "}
+            <strong className="font-medium text-ink-soft">
+              Termos de Atendimento
+            </strong>{" "}
+            (disponíveis no quadro acima ou na{" "}
             <a
               href="/termo"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-forest underline"
+              className="text-forest underline underline-offset-2 hover:text-forest-light"
             >
-              Termos de Atendimento
-            </a>{" "}
-            da Nathália Machado Fonoaudióloga, e que as informações fornecidas
-            neste cadastro são verdadeiras.
+              página dedicada
+            </a>
+            ) da Nathália Machado Fonoaudióloga, e que as informações
+            fornecidas neste cadastro são verdadeiras.
           </p>
         </label>
         {errors.termos && (

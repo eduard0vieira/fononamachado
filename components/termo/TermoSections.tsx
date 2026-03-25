@@ -6,7 +6,8 @@ import {
   TermoList,
 } from "@/components/termo/TermoBlocks";
 
-export default function TermoSections() {
+/** Cláusulas 01–16 (sem o bloco “17. Aceite”) — reutilizado na página /termo e no cadastro. */
+export function TermoSectionsBody() {
   return (
     <>
       <TermoSection number="01" title="Sobre os atendimentos">
@@ -327,6 +328,14 @@ export default function TermoSections() {
       </TermoSection>
 
       <TermoSpacer />
+    </>
+  );
+}
+
+export default function TermoSections() {
+  return (
+    <>
+      <TermoSectionsBody />
 
       <aside
         className="relative mt-14 overflow-hidden rounded-md bg-forest px-6 py-9 text-center shadow-md sm:px-10 sm:py-10"
