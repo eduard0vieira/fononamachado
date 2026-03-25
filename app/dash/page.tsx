@@ -1,11 +1,5 @@
-import type { Metadata } from "next";
-import Dashboard from "@/components/dash/Dashboard";
-
-export const metadata: Metadata = {
-  title: "Dashboard — Nathália Machado Fonoaudióloga",
-  robots: { index: false, follow: false },
-};
+import { notFound } from "next/navigation";
 
 export default function DashPage() {
-  return <Dashboard />;
+  notFound();
 }
