@@ -72,7 +72,7 @@ export default function Footer() {
               <span className="text-ink-muted/75">CNPJ 65.304.270/0001-31</span>
             </p>
 
-            <p className="shrink-0 text-center text-[0.75rem] font-light leading-relaxed tracking-wide text-ink-muted/45 sm:text-right">
+            <p className="shrink-0 text-center text-[0.76rem] font-light leading-relaxed tracking-wide text-ink-muted/45 sm:text-right">
               desenvolvido com{" "}
               <span className="text-honey/70" aria-label="coração">
                 ♥
