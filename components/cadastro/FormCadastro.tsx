@@ -222,7 +222,7 @@ export default function FormCadastro() {
                 className={cn(fieldBase, errors.cpf && fieldError)}
               />
             </Field>
-            <Field label="Telefone / WhatsApp" optional>
+            <Field label="Telefone / WhatsApp">
               <input
                 type="tel"
                 value={data.telefone}
@@ -234,7 +234,7 @@ export default function FormCadastro() {
             </Field>
           </div>
 
-          <Field label="E-mail" optional>
+          <Field label="E-mail">
             <input
               type="email"
               value={data.email}
