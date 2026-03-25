@@ -4,6 +4,9 @@ node_modules/
 .pnp.js
 .yarn/install-state.gz
 
+# google service account
+fononamachado-cadastro-921fa3d74aad.json
+
 # next.js
 .next/
 out/
