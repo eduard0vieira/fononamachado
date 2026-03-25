@@ -5,6 +5,29 @@ import {
   TermoSpacer,
   TermoList,
 } from "@/components/termo/TermoBlocks";
+/** Texto jurídico da cláusula 17 — mesma redação no aside da /termo e no cadastro. */
+function TermoAceiteParagrafo({ className }: { className?: string }) {
+  return (
+    <p className={className}>
+      O responsável declara ter tido acesso prévio a estes termos antes do
+      início ou continuidade do atendimento, e que o envio de dados para
+      cadastro, confirmação de agendamento, realização de pagamento ou
+      continuidade dos atendimentos caracteriza ciência e concordância com
+      todas as condições aqui estabelecidas.
+    </p>
+  );
+}
+
+/** Cláusula 17 no mesmo formato das demais — use no cadastro (expandable) onde não há o aside da /termo. */
+export function TermoClause17Section() {
+  return (
+    <>
+      <TermoSection number="17" title="Aceite dos Termos">
+        <TermoAceiteParagrafo />
+      </TermoSection>
+    </>
+  );
+}
 
 /** Cláusulas 01–16 (sem o bloco “17. Aceite”) — reutilizado na página /termo e no cadastro. */
 export function TermoSectionsBody() {
@@ -350,13 +373,7 @@ export default function TermoSections() {
         >
           17. Aceite dos Termos
         </h2>
-        <p className="mx-auto mt-4 max-w-[560px] text-[0.875rem] leading-[1.9] text-white/70">
-          O responsável declara ter tido acesso prévio a estes termos antes do
-          início ou continuidade do atendimento, e que o envio de dados para
-          cadastro, confirmação de agendamento, realização de pagamento ou
-          continuidade dos atendimentos caracteriza ciência e concordância com
-          todas as condições aqui estabelecidas.
-        </p>
+        <TermoAceiteParagrafo className="mx-auto mt-4 max-w-[560px] text-[0.875rem] leading-[1.9] text-white/70" />
         <div
           className="mx-auto mt-5 h-px w-10 bg-honey"
           aria-hidden="true"

@@ -21,7 +21,7 @@ export default function Footer() {
   return (
     <footer
       className={cn(
-        "border-t border-forest/10 bg-cream-alt/90 py-12 backdrop-blur-md supports-[backdrop-filter]:bg-cream-alt/75",
+        "border-t border-forest/10 bg-cream-alt/90 pt-12 pb-20 backdrop-blur-md supports-[backdrop-filter]:bg-cream-alt/75 sm:py-12",
         siteEdgePadding,
       )}
     >
@@ -72,7 +72,7 @@ export default function Footer() {
               <span className="text-ink-muted/75">CNPJ 65.304.270/0001-31</span>
             </p>
 
-            <p className="shrink-0 text-right text-[0.80rem] font-light leading-relaxed tracking-wde text-ink-muted/45 sm:text-right">
+            <p className="shrink-0 text-center text-[0.80rem] font-light leading-relaxed tracking-wide text-ink-muted/45 sm:text-right">
               desenvolvido com{" "}
               <span className="text-honey/70" aria-label="coração">
                 ♥

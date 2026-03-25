@@ -1,7 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { TermoSectionsBody } from "@/components/termo/TermoSections";
+import {
+  TermoSectionsBody,
+  TermoClause17Section,
+} from "@/components/termo/TermoSections";
 import { cn } from "@/lib/utils";
 
 export default function CadastroTermosExpandable() {
@@ -24,7 +27,7 @@ export default function CadastroTermosExpandable() {
             Ler termos de atendimento completos
           </p>
           <p className="mt-0.5 text-[0.75rem] font-light text-ink-muted">
-            16 cláusulas — você pode ler aqui sem sair da página
+            17 cláusulas — você pode ler aqui sem sair da página
           </p>
         </div>
         <span
@@ -62,6 +65,7 @@ export default function CadastroTermosExpandable() {
           >
             <div className="[&_.scroll-mt-28]:scroll-mt-4">
               <TermoSectionsBody />
+              <TermoClause17Section />
             </div>
           </div>
         </div>
