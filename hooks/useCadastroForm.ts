@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import type {
   CadastroFormData,
   CadastroFormErrors,
@@ -43,6 +43,7 @@ export function useCadastroForm() {
   const [errors, setErrors] = useState<CadastroFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [benMesmoResponsavel, setBenMesmoResponsavel] = useState(false);
 
   const setField = useCallback(
     <K extends keyof CadastroFormData>(
@@ -117,6 +118,23 @@ export function useCadastroForm() {
       benCpf: undefined,
     }));
   }, []);
+
+  const toggleBenMesmoResponsavel = useCallback((checked: boolean) => {
+    setBenMesmoResponsavel(checked);
+    if (!checked) {
+      setData((prev) => ({ ...prev, benNome: "", benCpf: "" }));
+    }
+  }, []);
+
+  // Mantém benNome/benCpf sincronizados enquanto o checkbox estiver ativo
+  useEffect(() => {
+    if (!benMesmoResponsavel) return;
+    setData((prev) => {
+      if (prev.benNome === prev.nome && prev.benCpf === prev.cpf) return prev;
+      return { ...prev, benNome: prev.nome, benCpf: prev.cpf };
+    });
+    setErrors((prev) => ({ ...prev, benNome: undefined, benCpf: undefined }));
+  }, [benMesmoResponsavel, data.nome, data.cpf]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const validate = useCallback((): boolean => {
     const newErrors: CadastroFormErrors = {};
@@ -203,11 +221,13 @@ export function useCadastroForm() {
     errors,
     submitting,
     submitted,
+    benMesmoResponsavel,
     setField,
     handleMaskedInput,
     handleCepChange,
     handlePaymentChange,
     copyResponsavelToBen,
+    toggleBenMesmoResponsavel,
     handleSubmit,
   };
 }
