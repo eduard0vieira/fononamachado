@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useCadastroForm } from "@/hooks/useCadastroForm";
 import CadastroTermosExpandable from "@/components/cadastro/CadastroTermosExpandable";
 import { cn } from "@/lib/utils";
@@ -145,7 +146,7 @@ const SendIcon = () => (
   </svg>
 );
 
-export default function FormCadastro() {
+export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void }) {
   const {
     data,
     errors,
@@ -160,10 +161,33 @@ export default function FormCadastro() {
     handleSubmit,
   } = useCadastroForm();
 
+  useEffect(() => {
+    if (submitted) onSubmitted?.();
+  }, [submitted]); // eslint-disable-line react-hooks/exhaustive-deps
+
   if (submitted) {
     return (
       <div className="bg-forest rounded-xl px-10 py-12 text-center mb-5">
-        <div className="text-4xl mb-4">✅</div>
+        <div className="flex justify-center mb-5">
+          <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-white/15 ring-1 ring-white/30">
+            <svg
+              width="36"
+              height="36"
+              viewBox="0 0 36 36"
+              fill="none"
+              aria-hidden="true"
+            >
+              <circle cx="18" cy="18" r="16" stroke="rgba(201,169,110,0.6)" strokeWidth="1.5" />
+              <polyline
+                points="11,18 16,23 25,13"
+                stroke="white"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
         <h2 className="font-serif text-[1.8rem] font-normal text-white mb-3">
           Cadastro enviado com sucesso!
         </h2>
