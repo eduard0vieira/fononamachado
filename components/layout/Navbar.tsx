@@ -110,7 +110,7 @@ export default function Navbar() {
           <div className="flex min-w-0 flex-1 items-center md:contents">
             <div className="mx-auto w-full max-w-[28rem] md:col-start-1 md:mx-0 md:ml-auto md:mr-0 lg:max-w-[30rem] lg:pr-4">
               <Logo
-                height={54}
+                height={64}
                 priority
                 alt="Logo Nathália Machado Fonoaudióloga"
                 imgClassName={cn(
