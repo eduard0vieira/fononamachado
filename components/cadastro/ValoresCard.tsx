@@ -19,7 +19,7 @@ const VALORES: ValorItem[] = [
     description: "Pix ou dinheiro · R$ 155 no cartão",
   },
   {
-    label: "Sítio · Outra cidade",
+    label: "Área rural · Outra cidade",
     price: "A combinar",
     description: "Valor adicional de deslocamento aplicável",
   },
