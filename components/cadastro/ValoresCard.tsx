@@ -51,7 +51,7 @@ export default function ValoresCard() {
         <p className="mt-4 pt-4 border-t border-cream-alt text-[0.78rem] text-ink-muted text-center leading-[1.6]">
           <strong className="text-honey-DEFAULT font-medium">Atenção:</strong>{" "}
           Os valores vigentes se aplicam a todos os atendimentos, incluindo
-          anamnese, avaliação e sessões terapêuticas. Para deslocamento a sítio
+          anamnese, avaliação e sessões terapêuticas. Para deslocamento a área rural
           ou outra cidade, entre em contato para combinar o valor adicional.
         </p>
         </div>
