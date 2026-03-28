@@ -16,7 +16,7 @@ export default function CadastroPageClient() {
           {/* Hero */}
           <div
             data-navbar-dark
-            className={`bg-forest pb-12 pt-[calc(72px+2.5rem)] text-center ${siteEdgePadding}`}
+            className={`bg-[#8FAA8A] pb-12 pt-[calc(72px+2.5rem)] text-center ${siteEdgePadding}`}
           >
             <SiteContainer>
               <h1 className="font-serif text-[clamp(2rem,4vw,3rem)] font-light tracking-wide text-white">

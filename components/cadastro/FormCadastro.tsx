@@ -539,7 +539,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
       <button
         type="submit"
         disabled={submitting}
-        className="w-full flex items-center justify-center gap-2.5 bg-forest text-white rounded-lg py-4 text-[0.88rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 hover:bg-forest-light hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(94,114,82,0.3)] disabled:bg-sage-light disabled:cursor-not-allowed disabled:transform-none mt-2"
+        className="w-full flex items-center justify-center gap-2.5 bg-[#8FAA8A] text-white rounded-lg py-4 text-[0.88rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 hover:bg-[#7a9675] hover:-translate-y-0.5 hover:shadow-[0_6px_24px_rgba(143,170,138,0.35)] disabled:bg-sage-light disabled:cursor-not-allowed disabled:transform-none mt-2"
       >
         <SendIcon />
         {submitting ? "Enviando..." : "Enviar Cadastro"}

@@ -361,7 +361,7 @@ export default function TermoSections() {
       <TermoSectionsBody />
 
       <aside
-        className="relative mt-14 overflow-hidden rounded-md bg-forest px-6 py-9 text-center shadow-md sm:px-10 sm:py-10"
+        className="relative mt-14 overflow-hidden rounded-md bg-[#8FAA8A] px-6 py-9 text-center shadow-md sm:px-10 sm:py-10"
         aria-labelledby="termo-aceite-titulo"
       >
         <p className="font-serif text-[0.8125rem] italic tracking-[0.18em] text-honey-light">
