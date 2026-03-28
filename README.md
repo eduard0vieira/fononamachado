@@ -129,6 +129,8 @@ Na Vercel, as mesmas variáveis devem ser adicionadas em **Settings > Environmen
 
 ```bash
 # Instalar dependências
+clicar control + j para abrir o terminal e rodar yarn dev
+
 yarn install
 
 # Rodar em desenvolvimento
