@@ -236,7 +236,7 @@ function HeroPortrait({ reduceMotion }: { reduceMotion: boolean }) {
       <div
         className={cn(
           "relative aspect-square w-[min(78vw,280px)] sm:w-[min(80vw,380px)] lg:w-[min(42vw,440px)]",
-          "overflow-hidden rounded-[1.375rem] bg-forest sm:rounded-[1.875rem] lg:rounded-[2rem]",
+          "overflow-hidden rounded-[1.375rem] bg-[#8FAA8A] sm:rounded-[1.875rem] lg:rounded-[2rem]",
           "backface-hidden [transform:translateZ(0)]",
         )}
       >
