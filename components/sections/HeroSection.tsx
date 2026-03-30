@@ -291,7 +291,7 @@ export default function HeroSection() {
         "relative flex min-h-[calc(100dvh-72px)] bg-cream-warm",
         "max-md:items-start md:items-center",
         "overflow-x-hidden",
-        "mt-[72px]",
+        "pt-[72px]",
         siteEdgePadding,
       )}
     >
