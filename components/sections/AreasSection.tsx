@@ -13,37 +13,37 @@ const AREAS: AreaCard[] = [
     iconKey: "childLanguage",
     title: "Linguagem infantil",
     description:
-      "Avaliação e intervenção no desenvolvimento da linguagem em crianças, trabalhando comunicação, fala e compreensão.",
+      "Avaliação e acompanhamento do desenvolvimento da linguagem oral e escrita em crianças, incluindo fala, compreensão, comunicação e dificuldades relacionadas à aprendizagem escolar.",
   },
   {
     iconKey: "adultLanguage",
     title: "Linguagem adulto",
     description:
-      "Acompanhamento terapêutico para adultos com alterações de linguagem, voz ou comunicação em geral.",
+      "Atendimento terapêutico para adultos com dificuldades de linguagem, fala, voz ou comunicação, promovendo mais autonomia e qualidade de vida no dia a dia.",
   },
   {
     iconKey: "oro",
     title: "Motricidade orofacial",
     description:
-      "Avaliação e tratamento de alterações nos músculos da face, boca, mastigação, deglutição e respiração.",
+      "Avaliação e tratamento das funções orais, incluindo mastigação, deglutição, respiração e musculatura da face.",
   },
   {
     iconKey: "dysphagia",
     title: "Disfagia adulto",
     description:
-      "Reabilitação da deglutição em adultos, com atendimento domiciliar disponível para casos que exigem.",
+      "Avaliação e Reabilitação da deglutição em adultos, com cuidado individualizado e possibilidade de atendimento domiciliar para maior conforto e segurança.",
   },
   {
     iconKey: "assessment",
     title: "Avaliação detalhada",
     description:
-      "Processo avaliativo completo com elaboração de plano terapêutico individualizado para cada paciente.",
+      "Processo completo de avaliação fonoaudiológica para identificação de necessidades e definição de plano terapêutico individualizado.",
   },
   {
     iconKey: "family",
     title: "Orientação familiar",
     description:
-      "Suporte e orientação para famílias, integrando o núcleo familiar no processo terapêutico da criança.",
+      "Acolhimento e orientação às famílias, fortalecendo sua participação no processo terapêutico e contribuindo para o desenvolvimento da criança.",
   },
 ];
 
