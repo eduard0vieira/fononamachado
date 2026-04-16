@@ -65,10 +65,8 @@ export function AreaCardIcon({
     case "childLanguage":
       return (
         <svg viewBox="0 0 24 24" className={c} aria-hidden {...svgProps}>
-          <path d="M21 11.5a8.5 8.5 0 01-8.5 8.5H6l-3 3v-6.5a8.5 8.5 0 018.5-8.5h10z" />
-          <circle cx="9" cy="10" r="1" fill="currentColor" stroke="none" />
-          <circle cx="15" cy="10" r="1" fill="currentColor" stroke="none" />
-          <path d="M9.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" />
+          {/* peça de quebra-cabeça */}
+          <path d="M6 2h5v3a2 2 0 104 0V2h5a2 2 0 012 2v5h-3a2 2 0 100 4h3v5a2 2 0 01-2 2h-5v-3a2 2 0 10-4 0v3H6a2 2 0 01-2-2v-5h3a2 2 0 100-4H4V4a2 2 0 012-2z" />
         </svg>
       );
     case "adultLanguage":
@@ -81,16 +79,21 @@ export function AreaCardIcon({
     case "oro":
       return (
         <svg viewBox="0 0 24 24" className={c} aria-hidden {...svgProps}>
-          <ellipse cx="12" cy="11" rx="7" ry="5" />
-          <path d="M9 11h6" />
-          <path d="M8 16c1.5 2 4.5 2.2 8 .5" />
+          <circle cx="12" cy="12" r="10" />
+          <path d="M8 15s1.5 2 4 2 4-2 4-2" />
+          <circle cx="9" cy="9.5" r="1" fill="currentColor" stroke="none" />
+          <circle cx="15" cy="9.5" r="1" fill="currentColor" stroke="none" />
         </svg>
       );
     case "dysphagia":
       return (
         <svg viewBox="0 0 24 24" className={c} aria-hidden {...svgProps}>
-          <path d="M12 3.5c-1.8 3.2-4.5 6.4-4.5 10a4.5 4.5 0 109 0c0-3.6-2.7-6.8-4.5-10z" />
-          <path d="M5 18c2 2.5 5 4 7 4s5-1.5 7-4" />
+          {/* garfo (esquerda) */}
+          <path d="M7 2v6M7 8v13" />
+          <path d="M5 2v4a2 2 0 002 2h0a2 2 0 002-2V2" />
+          {/* colher (direita) */}
+          <path d="M17 10v12" />
+          <ellipse cx="17" cy="6" rx="2.5" ry="4" />
         </svg>
       );
     case "assessment":
