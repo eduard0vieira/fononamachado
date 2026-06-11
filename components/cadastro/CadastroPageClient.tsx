@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import SiteContainer from "@/components/layout/SiteContainer";
-import ValoresCard from "@/components/cadastro/ValoresCard";
 import FormCadastro from "@/components/cadastro/FormCadastro";
 import { siteEdgePadding } from "@/lib/siteLayout";
 
@@ -31,14 +30,11 @@ export default function CadastroPageClient() {
               <div className="mx-auto mt-5 h-px w-12 bg-honey" />
             </SiteContainer>
           </div>
-
-          {/* Valores */}
-          <ValoresCard />
         </>
       )}
 
       {/* Form */}
-      <div className={`pb-16 ${submitted ? "pt-[calc(72px+2.5rem)]" : ""} ${siteEdgePadding}`}>
+      <div className={`pb-16 ${submitted ? "pt-[calc(72px+2.5rem)]" : "pt-12"} ${siteEdgePadding}`}>
         <SiteContainer className="max-w-3xl">
           <FormCadastro onSubmitted={() => setSubmitted(true)} />
         </SiteContainer>
