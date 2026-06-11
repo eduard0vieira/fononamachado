@@ -80,6 +80,7 @@ export interface CadastroFormErrors {
   benCpf?: string;
   benNasc?: string;
   pagamento?: string;
+  diaPreferido?: string;
   termos?: string;
 }
 

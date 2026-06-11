@@ -38,6 +38,42 @@ interface ViaCepResponse {
   erro?: boolean;
 }
 
+// Ordem visual dos campos no formulário — usada para rolar até o primeiro erro.
+const FIELD_ORDER: (keyof CadastroFormErrors)[] = [
+  "nome",
+  "cpf",
+  "cep",
+  "rua",
+  "numero",
+  "bairro",
+  "cidade",
+  "benNome",
+  "benCpf",
+  "benNasc",
+  "pagamento",
+  "diaPreferido",
+  "termos",
+];
+
+function scrollToFirstError(errs: CadastroFormErrors) {
+  const firstKey = FIELD_ORDER.find((key) => errs[key]);
+  if (!firstKey) return;
+
+  const el = document.getElementById(`cad-${firstKey}`);
+  if (!el) return;
+
+  el.scrollIntoView({ behavior: "smooth", block: "center" });
+
+  if (
+    el instanceof HTMLInputElement ||
+    el instanceof HTMLSelectElement ||
+    el instanceof HTMLTextAreaElement
+  ) {
+    // preventScroll: o foco não cancela a animação suave do scrollIntoView
+    el.focus({ preventScroll: true });
+  }
+}
+
 export function useCadastroForm() {
   const [data, setData] = useState<CadastroFormData>(INITIAL_DATA);
   const [errors, setErrors] = useState<CadastroFormErrors>({});
@@ -136,7 +172,7 @@ export function useCadastroForm() {
     setErrors((prev) => ({ ...prev, benNome: undefined, benCpf: undefined }));
   }, [benMesmoResponsavel, data.nome, data.cpf]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const validate = useCallback((): boolean => {
+  const validate = useCallback((): CadastroFormErrors => {
     const newErrors: CadastroFormErrors = {};
 
     if (!isRequiredFilled(data.nome))
@@ -155,17 +191,24 @@ export function useCadastroForm() {
       newErrors.benNasc = "Informe a data de nascimento.";
     if (!data.pagamento)
       newErrors.pagamento = "Selecione uma modalidade de pagamento.";
+    if (data.pagamento === "mensal" && !data.diaPreferido)
+      newErrors.diaPreferido =
+        "Escolha o dia preferido para o pagamento mensal.";
     if (!data.termosAceitos)
       newErrors.termos = "Você precisa aceitar os termos para continuar.";
 
     setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
+    return newErrors;
   }, [data]);
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
-      if (!validate()) return;
+      const validationErrors = validate();
+      if (Object.keys(validationErrors).length > 0) {
+        scrollToFirstError(validationErrors);
+        return;
+      }
 
       const pagamentoStr =
         data.pagamento === "mensal"

@@ -212,6 +212,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         <div className="grid gap-4">
           <Field label="Nome completo" required error={errors.nome}>
             <input
+              id="cad-nome"
               type="text"
               value={data.nome}
               onChange={(e) => setField("nome", e.target.value)}
@@ -224,6 +225,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Field label="CPF" required error={errors.cpf}>
               <input
+                id="cad-cpf"
                 type="text"
                 value={data.cpf}
                 onChange={(e) => handleMaskedInput("cpf", e.target.value)}
@@ -260,6 +262,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         <div className="grid grid-cols-1 sm:grid-cols-[1fr_2fr] gap-4 mb-4">
           <Field label="CEP" required error={errors.cep}>
             <input
+              id="cad-cep"
               type="text"
               value={data.cep}
               onChange={(e) => handleCepChange(e.target.value)}
@@ -270,6 +273,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           </Field>
           <Field label="Rua / Logradouro" required error={errors.rua}>
             <input
+              id="cad-rua"
               type="text"
               value={data.rua}
               onChange={(e) => setField("rua", e.target.value)}
@@ -282,6 +286,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Field label="Número" required error={errors.numero}>
             <input
+              id="cad-numero"
               type="text"
               value={data.numero}
               onChange={(e) => setField("numero", e.target.value)}
@@ -291,6 +296,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           </Field>
           <Field label="Bairro" required error={errors.bairro}>
             <input
+              id="cad-bairro"
               type="text"
               value={data.bairro}
               onChange={(e) => setField("bairro", e.target.value)}
@@ -300,6 +306,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           </Field>
           <Field label="Cidade / UF" required error={errors.cidade}>
             <input
+              id="cad-cidade"
               type="text"
               value={data.cidade}
               onChange={(e) => setField("cidade", e.target.value)}
@@ -385,6 +392,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           {!benMesmoResponsavel && (
             <Field label="Nome completo do beneficiário" required error={errors.benNome}>
               <input
+                id="cad-benNome"
                 type="text"
                 value={data.benNome}
                 onChange={(e) => setField("benNome", e.target.value)}
@@ -398,6 +406,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
             {!benMesmoResponsavel && (
               <Field label="CPF do beneficiário" required error={errors.benCpf}>
                 <input
+                  id="cad-benCpf"
                   type="text"
                   value={data.benCpf}
                   onChange={(e) => handleMaskedInput("benCpf", e.target.value)}
@@ -409,6 +418,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
             )}
             <Field label="Data de nascimento" required error={errors.benNasc}>
               <input
+                id="cad-benNasc"
                 type="date"
                 value={data.benNasc}
                 onChange={(e) => setField("benNasc", e.target.value)}
@@ -425,7 +435,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         subtitle="Escolha como prefere organizar os pagamentos. Aceitamos Pix, dinheiro e cartão."
         icon={<CardIcon />}
       >
-        <div className="flex flex-col gap-3">
+        <div id="cad-pagamento" className="flex flex-col gap-3 scroll-mt-28">
           {(["sessao", "mensal"] as const).map((mode) => (
             <label
               key={mode}
@@ -461,7 +471,13 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         </div>
 
         {data.pagamento === "mensal" && (
-          <div className="mt-4 p-4 bg-cream border border-honey-light rounded-lg">
+          <div
+            id="cad-diaPreferido"
+            className={cn(
+              "mt-4 p-4 bg-cream border rounded-lg scroll-mt-28",
+              errors.diaPreferido ? "border-red-400" : "border-honey-light",
+            )}
+          >
             <p className="text-[0.72rem] font-medium tracking-[0.14em] uppercase text-ink-muted mb-3 block">
               Escolha o dia preferido para pagamento mensal
             </p>
@@ -487,6 +503,11 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                 Dia {data.diaPreferido} de cada mês
               </p>
             )}
+            {errors.diaPreferido && (
+              <p className="mt-2.5 text-[0.72rem] text-red-500">
+                {errors.diaPreferido}
+              </p>
+            )}
           </div>
         )}
 
@@ -500,8 +521,9 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         <CadastroTermosExpandable />
 
         <label
+          id="cad-termos"
           className={cn(
-            "flex items-start gap-3.5 p-5 rounded-lg cursor-pointer transition-all duration-200 border",
+            "flex items-start gap-3.5 p-5 rounded-lg cursor-pointer transition-all duration-200 border scroll-mt-28",
             errors.termos
               ? "border-red-400 bg-red-50"
               : "border-honey-light bg-honey/5",
