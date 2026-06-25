@@ -330,8 +330,8 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
 
       {/* 2. Beneficiário */}
       <SectionCard
-        title="Beneficiário do Atendimento"
-        subtitle="Quem irá receber o atendimento fonoaudiológico. Pode ser o próprio responsável ou outra pessoa."
+        title="Paciente do Atendimento"
+        subtitle="Quem irá receber o atendimento fonoaudiológico. Pode ser o próprio responsável financeiro ou outra pessoa."
         icon={<UsersIcon />}
       >
         {/* Checkbox "mesmo responsável" */}
@@ -380,7 +380,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                 benMesmoResponsavel ? "text-forest" : "text-ink",
               )}
             >
-              O beneficiário é o mesmo que o responsável financeiro
+              O responsável financeiro é o paciente
             </span>
             <span className="text-[0.75rem] text-ink-muted font-light mt-0.5">
               Nome e CPF serão preenchidos automaticamente
@@ -390,7 +390,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
 
         <div className="grid gap-4">
           {!benMesmoResponsavel && (
-            <Field label="Nome completo do beneficiário" required error={errors.benNome}>
+            <Field label="Nome completo do paciente" required error={errors.benNome}>
               <input
                 id="cad-benNome"
                 type="text"
@@ -404,7 +404,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
 
           <div className={cn("grid gap-4", !benMesmoResponsavel && "grid-cols-1 sm:grid-cols-2")}>
             {!benMesmoResponsavel && (
-              <Field label="CPF do beneficiário" required error={errors.benCpf}>
+              <Field label="CPF do paciente" required error={errors.benCpf}>
                 <input
                   id="cad-benCpf"
                   type="text"
@@ -416,7 +416,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                 />
               </Field>
             )}
-            <Field label="Data de nascimento" required error={errors.benNasc}>
+            <Field label="Data de nascimento do paciente" required error={errors.benNasc}>
               <input
                 id="cad-benNasc"
                 type="date"
