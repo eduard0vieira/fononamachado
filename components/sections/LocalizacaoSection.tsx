@@ -3,6 +3,7 @@ import { Reveal, StaggerItem, StaggerList } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GoldRule from "@/components/ui/GoldRule";
 import Button from "@/components/ui/Button";
+import { HORARIO } from "@/lib/perfil";
 import { siteEdgePadding } from "@/lib/siteLayout";
 import { cn } from "@/lib/utils";
 import type { ContatoIconKind, ContatoItem } from "@/types";
@@ -216,6 +217,13 @@ export default function LocalizacaoSection() {
               </StaggerItem>
             ))}
           </StaggerList>
+
+          <Reveal className="mb-8 -mt-6" delay={0.04}>
+            <p className="text-[0.9rem] font-light leading-relaxed text-white/85">
+              {HORARIO.texto}. Atendimento particular, com horário agendado, no
+              consultório ou em domicílio.
+            </p>
+          </Reveal>
 
           <Reveal delay={0.06}>
             <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">

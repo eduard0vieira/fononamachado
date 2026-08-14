@@ -3,6 +3,7 @@ import {
   CIDADES_ATENDIDAS,
   FAQ,
   GEO,
+  HORARIO,
   NOME_COMPLETO,
   NOME_CURTO,
   SITE_URL,
@@ -68,6 +69,14 @@ export default function JsonLd() {
         },
       })),
       availableLanguage: { "@type": "Language", name: "Português" },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: HORARIO.dias,
+          opens: HORARIO.abre,
+          closes: HORARIO.fecha,
+        },
+      ],
       /** Atende no consultório e na casa do paciente */
       availableService: [
         {

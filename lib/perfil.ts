@@ -15,6 +15,17 @@ export const NOME_CURTO = "Nathália Machado";
 /** Coordenadas do consultório (mesmas do embed do Maps em constants.ts) */
 export const GEO = { lat: -23.8787045, lng: -47.9949504 };
 
+/**
+ * Horário de atendimento. Precisa bater com o que está cadastrado na ficha
+ * do Google: divergência entre site e ficha derruba a confiança do dado.
+ */
+export const HORARIO = {
+  texto: "Segunda a sexta, das 8h às 19h",
+  dias: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+  abre: "08:00",
+  fecha: "19:00",
+};
+
 export const CIDADES_ATENDIDAS = [
   "São Miguel Arcanjo",
   "Pilar do Sul",
