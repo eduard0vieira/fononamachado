@@ -71,6 +71,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: { canonical: "/" },
+  /** Comprovação de propriedade do site no Google Search Console */
+  verification: {
+    google: "8X3QjrjJkI2zV2gZO6NaqEKzeXLhMUulqiNfQO-v2I0",
+  },
   openGraph: {
     type: "website",
     url: SITE_URL,
