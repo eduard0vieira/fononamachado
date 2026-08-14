@@ -105,7 +105,9 @@ export default function AreasSection() {
     >
       <SiteContainer>
         <Reveal className="text-center">
-          <SectionLabel>Especialidades</SectionLabel>
+          {/* "Especialidade" é título formal do conselho — o rótulo aqui
+              descreve o que ela atende, sem sugerir titulação */}
+          <SectionLabel>O que eu atendo</SectionLabel>
           <h2
             id="areas-titulo"
             className="font-serif text-[clamp(2rem,4.5vw,3.2rem)] font-light leading-[1.15] text-ink"

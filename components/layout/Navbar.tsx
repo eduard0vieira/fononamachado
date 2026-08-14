@@ -10,6 +10,7 @@ import type { NavLink } from "@/types";
 const NAV_LINKS: NavLink[] = [
   { label: "Sobre", href: "/#sobre" },
   { label: "Áreas", href: "/#areas" },
+  { label: "Dúvidas", href: "/#duvidas" },
   { label: "Contato", href: "/#localizacao" },
   { label: "Termos", href: "/termo" },
   {

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import WhatsAppFloat from "@/components/WhatsAppFloat";
+import { SITE_URL } from "@/lib/perfil";
 
 const jost = Jost({
   subsets: ["latin"],
@@ -20,35 +21,72 @@ const cormorant = Cormorant_Garamond({
   display: "swap",
 });
 
+const OG_IMAGE = {
+  url: "/images/nathalia.png",
+  width: 1200,
+  height: 630,
+  alt: "Nathália Machado, fonoaudióloga em São Miguel Arcanjo — SP",
+};
+
 export const metadata: Metadata = {
-  title: "Nathália Machado | Fonoaudióloga",
+  /** Base para resolver canonical e imagens relativas do OG */
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: "Nathália Machado | Fonoaudióloga em São Miguel Arcanjo — SP",
+    template: "%s | Nathália Machado Fonoaudióloga",
+  },
   description:
-    "Nathália Machado, Fonoaudióloga (CRFa 2-23700) em São Miguel Arcanjo - SP. Atendimentos em Linguagem Adulto e Infantil, Motricidade Orofacial e Disfagia. Agende sua consulta.",
+    "Fonoaudióloga em São Miguel Arcanjo — SP (CRFa 2-23700). Atendimento particular, com horário agendado, em linguagem infantil, linguagem adulto, motricidade orofacial e disfagia. Atendimento domiciliar e pacientes de Pilar do Sul e região.",
   keywords: [
-    "fonoaudióloga",
-    "fonoaudiologia",
-    "São Miguel Arcanjo",
-    "linguagem infantil",
+    "fonoaudióloga em São Miguel Arcanjo",
+    "fonoaudiologia São Miguel Arcanjo SP",
+    "fonoaudióloga Pilar do Sul",
+    "fonoaudiologia infantil",
+    "atraso de fala tratamento",
+    "criança que fala pouco",
+    "troca de letras na fala",
+    "comunicação alternativa autismo",
     "motricidade orofacial",
+    "criança respira pela boca",
+    "ceceio",
     "disfagia",
+    "dificuldade para engolir",
+    "engasgo ao comer",
+    "fonoaudióloga domiciliar",
     "Nathália Machado",
+    "CRFa 2-23700",
   ],
-  authors: [{ name: "Nathália Machado" }],
-  robots: { index: true, follow: true },
-  alternates: { canonical: "https://fononamachado.github.io/" },
+  authors: [{ name: "Nathália Machado", url: SITE_URL }],
+  creator: "Nathália Machado",
+  publisher: "Nathália Machado",
+  category: "Saúde",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    url: "https://fononamachado.github.io/",
-    title: "Nathália Machado | Fonoaudióloga em São Miguel Arcanjo",
+    url: SITE_URL,
+    siteName: "Nathália Machado — Fonoaudióloga",
+    title: "Nathália Machado | Fonoaudióloga em São Miguel Arcanjo — SP",
     description:
-      "Atendimentos em Linguagem Adulto e Infantil, Motricidade Orofacial e Disfagia. São Miguel Arcanjo - SP.",
+      "Atendimento particular em linguagem infantil e adulta, motricidade orofacial e disfagia, com opção de atendimento domiciliar. CRFa 2-23700.",
     locale: "pt_BR",
+    images: [OG_IMAGE],
   },
   twitter: {
     card: "summary_large_image",
     title: "Nathália Machado | Fonoaudióloga em São Miguel Arcanjo",
     description:
-      "Atendimentos em Linguagem, Motricidade Orofacial e Disfagia em São Miguel Arcanjo - SP.",
+      "Linguagem infantil e adulta, motricidade orofacial e disfagia em São Miguel Arcanjo — SP. Atendimento domiciliar disponível.",
+    images: [OG_IMAGE.url],
   },
 };
 

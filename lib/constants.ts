@@ -11,6 +11,20 @@ export const DEVELOPER_INSTAGRAM_URL =
 
 export const MAPS_URL = "https://maps.app.goo.gl/VR8cpWSdMjEnzdDD7";
 
+/**
+ * Avaliações da ficha do Google.
+ *
+ * Preenchido à mão de propósito: puxar da Places API custa chave + cobrança
+ * e devolve só 5 avaliações. Confira na ficha e atualize quando mudar —
+ * conferido em 14/08/2026.
+ *
+ * Não vire isso em `aggregateRating` no JSON-LD: o Google descarta avaliação
+ * que o próprio negócio publica sobre si (self-serving review) e a marcação
+ * não gera estrela no resultado de busca.
+ */
+export const GOOGLE_NOTA = "5,0";
+export const GOOGLE_AVALIACOES = 14;
+
 export const MAPS_EMBED_SRC =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4004.5876547636517!2d-47.99495039999999!3d-23.878704499999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94c5af83e8bac7ef%3A0xb28f528471b04b1d!2sNath%C3%A1lia%20Machado%20-%20Fonoaudi%C3%B3loga%20%7C%20Fonoaudiologia%20em%20S%C3%A3o%20Miguel%20Arcanjo!5e1!3m2!1sen!2sbr!4v1774325707743!5m2!1sen!2sbr";
 
