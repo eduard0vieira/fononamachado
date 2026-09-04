@@ -21,7 +21,16 @@
 - Horário de atendimento: segunda a sexta, das 8h às 19h
 - Atendimento domiciliar para pacientes sem condição de se deslocar
 - Agendamento: WhatsApp (15) 99666-1683. E-mail fononamachado@gmail.com
-- Modalidade: particular, somente com horário agendado. Emite nota fiscal, que o paciente pode usar para solicitar reembolso ao plano de saúde.
+- Modalidade: particular, somente com horário agendado. Não é credenciada a convênio; emite nota fiscal, que o paciente usa para solicitar reembolso ao plano de saúde.
+
+## Convênios e reembolso
+
+- Não é credenciada a nenhum convênio e não atende por carteirinha nem por guia. O atendimento é particular.
+- Emite nota fiscal de todos os atendimentos, em nome do paciente ou do titular do plano, com o registro profissional CRFa 2-23700. O paciente apresenta a nota ao convênio para pedir reembolso.
+- Vale para qualquer plano — Unimed, Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde, NotreDame Intermédica, Hapvida, Cassi, IAMSPE e outros: o caminho é sempre pagamento particular seguido de pedido de reembolso.
+- O valor reembolsado depende do contrato de cada plano: planos com livre escolha costumam devolver parte do valor, e há contratos empresariais sem cláusula de reembolso.
+- Desde 2022 os planos regulados pela ANS cobrem sessões de fonoaudiologia sem limite de quantidade mediante indicação médica, inclusive para Transtorno do Espectro Autista e atraso de linguagem. Cobertura não é o mesmo que reembolso de atendimento particular.
+- A maioria dos planos exige encaminhamento médico com CID. Emite relatório de evolução ou justificativa de continuidade do tratamento quando o convênio pede.
 
 ## O que atende
 

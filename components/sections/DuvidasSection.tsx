@@ -81,7 +81,7 @@ export default function DuvidasSection() {
                   </span>
                 </summary>
                 <div className="px-5 pb-5 sm:px-6 sm:pb-6">
-                  <p className="max-w-[62ch] text-[0.9rem] font-light leading-[1.8] text-ink-muted">
+                  <p className="text-[0.9rem] font-light leading-[1.8] text-ink-muted">
                     {item.resposta}
                   </p>
                 </div>

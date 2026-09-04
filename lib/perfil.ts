@@ -113,10 +113,20 @@ export const FAQ: { pergunta: string; resposta: string }[] = [
     resposta:
       "O consultório fica no Centro de São Miguel Arcanjo (SP), na Rua Miguel Terra, 385. Também recebo pacientes de Pilar do Sul, Itapetininga e outras cidades da região, e faço atendimento domiciliar mediante deslocamento.",
   },
+  /**
+   * As duas de convênio existem porque a busca chega por marca de plano
+   * ("fonoaudióloga Unimed"). Os nomes aparecem sempre ao lado do "não sou
+   * credenciada": citar o plano solto cria expectativa de carteirinha.
+   */
   {
-    pergunta: "Você atende convênio?",
+    pergunta: "Você atende convênio ou plano de saúde?",
     resposta:
-      "O atendimento é particular, sempre com horário agendado, no consultório ou em domicílio. Emito nota fiscal de todos os atendimentos, em até 3 dias úteis após o pagamento, e você pode apresentá-la ao seu plano de saúde para solicitar reembolso. A cobertura e o valor reembolsado dependem do contrato de cada plano, então vale confirmar as regras direto com o convênio. Valores e disponibilidade de agenda eu informo no primeiro contato pelo WhatsApp.",
+      "Não sou credenciada a nenhum convênio, então não atendo por carteirinha nem por guia. O atendimento é particular, sempre com horário agendado, no consultório ou em domicílio. O que eu faço é emitir nota fiscal de todos os atendimentos, para você pedir reembolso ao seu plano. Isso vale para quem tem Unimed, Bradesco Saúde, SulAmérica, Amil, Porto Seguro Saúde, NotreDame Intermédica, Hapvida, Cassi, IAMSPE ou qualquer outro plano: você paga a sessão, recebe a nota e envia ao convênio. Quanto volta depende do contrato — planos com livre escolha costumam reembolsar uma parte do valor, e alguns contratos empresariais não têm reembolso nenhum. Como isso muda de plano para plano, vale confirmar direto com o seu antes de começar. Valores e disponibilidade de agenda eu informo no primeiro contato pelo WhatsApp.",
+  },
+  {
+    pergunta: "Meu plano cobre fonoaudiologia? Como funciona o reembolso?",
+    resposta:
+      "Desde 2022 os planos regulados pela ANS cobrem sessões de fonoaudiologia sem limite de quantidade, desde que haja indicação médica — inclusive para crianças com Transtorno do Espectro Autista, atraso de linguagem e outras condições com CID. Cobertura, porém, não é a mesma coisa que reembolso de atendimento particular: o percentual que o plano devolve é o que estiver escrito no seu contrato. Na prática funciona assim: peça ao pediatra, neurologista ou otorrino um encaminhamento para fonoaudiologia com o CID, porque quase todos os planos exigem esse pedido; faça a sessão e o pagamento; eu emito a nota fiscal em nome do paciente ou do titular do plano, com o meu registro profissional (CRFa 2-23700); você envia a nota e o pedido médico pelo aplicativo do convênio; o reembolso costuma cair na conta do titular em até 30 dias. Se o plano pedir relatório de evolução ou justificativa de continuidade do tratamento, eu preparo — faz parte do acompanhamento.",
   },
   {
     pergunta: "Como funcionam os atendimentos?",

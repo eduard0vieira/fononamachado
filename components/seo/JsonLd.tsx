@@ -93,7 +93,8 @@ export default function JsonLd() {
           })),
         },
       ],
-      paymentAccepted: "Particular. Emite nota fiscal para reembolso junto ao plano de saúde.",
+      paymentAccepted:
+        "Particular, sem credenciamento a convênios. Emite nota fiscal para reembolso junto ao plano de saúde.",
       founder: { "@id": PESSOA_ID },
       employee: { "@id": PESSOA_ID },
       knowsAbout: ASSUNTOS,
