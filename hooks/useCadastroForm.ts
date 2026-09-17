@@ -177,7 +177,7 @@ export function useCadastroForm() {
 
     if (!isRequiredFilled(data.nome))
       newErrors.nome = "Por favor, informe o nome completo.";
-    if (!isValidCpf(data.cpf)) newErrors.cpf = "CPF inválido (11 dígitos).";
+    if (!isValidCpf(data.cpf)) newErrors.cpf = "CPF inválido.";
     if (!isValidCep(data.cep)) newErrors.cep = "CEP inválido.";
     if (!isRequiredFilled(data.rua)) newErrors.rua = "Informe a rua.";
     if (!isRequiredFilled(data.numero)) newErrors.numero = "Informe o número.";
@@ -186,7 +186,7 @@ export function useCadastroForm() {
     if (!isRequiredFilled(data.benNome))
       newErrors.benNome = "Informe o nome do beneficiário.";
     if (!isValidCpf(data.benCpf))
-      newErrors.benCpf = "CPF do beneficiário inválido (11 dígitos).";
+      newErrors.benCpf = "CPF do beneficiário inválido.";
     if (!data.benNasc)
       newErrors.benNasc = "Informe a data de nascimento.";
     if (!data.pagamento)
