@@ -7,6 +7,8 @@
  * descartado. Ao atualizar um número, atualize aqui — só aqui.
  */
 
+import numeros from "./numeros.json";
+
 export const SITE_URL = "https://fononamachado.com.br";
 
 export const NOME_COMPLETO = "Nathália Machado Vieira de Oliveira";
@@ -33,29 +35,51 @@ export const CIDADES_ATENDIDAS = [
 ];
 
 /**
- * Números agregados do dossiê. Nenhum dado identifica paciente.
- * Base: consultório 21/01/2025–07/08/2026 + vínculo hospitalar 2025.
+ * Números agregados. Nenhum dado identifica paciente.
+ *
+ * A parte do consultório vem de `lib/numeros.json`, que NÃO se edita à mão:
+ * é regravado toda segunda-feira pelo `manage.py numeros_site` do
+ * fono_finance (agendador do Windows), que faz o commit e o push sozinho.
+ * A parte do hospital é fixa — o vínculo fechou em nov/2025 e a planilha do
+ * serviço não está no sistema.
  */
+const HOSPITAL_ATENDIMENTOS = 752;
+const HOSPITAL_PESSOAS = 161;
+/** Pessoas atendidas no hospital que depois vieram ao consultório (dossiê,
+ *  ago/2026). Descontadas para não contar a mesma pessoa duas vezes. */
+const PESSOAS_NAS_DUAS_FRENTES = 6;
+
+export const NUMEROS_ATUALIZADO_EM = numeros.atualizado_em;
+
+export const TOTAL_ATENDIMENTOS =
+  numeros.consultorio_atendimentos + HOSPITAL_ATENDIMENTOS;
+export const TOTAL_PESSOAS =
+  numeros.consultorio_pessoas + HOSPITAL_PESSOAS - PESSOAS_NAS_DUAS_FRENTES;
+export const DOMICILIO_ATENDIMENTOS = numeros.domicilio_atendimentos;
+
+/** 2255 → "2.255" */
+export function formatarNumero(n: number) {
+  return n.toLocaleString("pt-BR");
+}
+
 export const NUMEROS = [
   {
-    /* 2.019 em 13/08/2026: 1.267 de consultório (banco do fono_finance)
-       + 752 do vínculo hospitalar, que fechou em nov/2025. */
-    valor: "2.000+",
+    valor: TOTAL_ATENDIMENTOS,
     label: "atendimentos realizados",
     detalhe: "no consultório e no hospital, desde janeiro de 2025",
   },
   {
-    valor: "240+",
+    valor: TOTAL_PESSOAS,
     label: "pessoas atendidas",
     detalhe: "de crianças pequenas a pacientes com mais de 100 anos",
   },
   {
-    valor: "752",
+    valor: HOSPITAL_ATENDIMENTOS,
     label: "atendimentos hospitalares",
     detalhe: "em disfagia, ao longo de dez meses de 2025",
   },
   {
-    valor: "111",
+    valor: DOMICILIO_ATENDIMENTOS,
     label: "atendimentos em domicílio",
     detalhe: "para quem não tem condição de se deslocar",
   },
@@ -106,7 +130,7 @@ export const FAQ: { pergunta: string; resposta: string }[] = [
   {
     pergunta: "Você atende em domicílio?",
     resposta:
-      "Sim, para pacientes que não têm condição de se deslocar até o consultório. Já realizei mais de 110 atendimentos domiciliares, a modalidade mais usada por pacientes idosos, acamados e por pacientes com disfagia. Atendo em domicílio tanto para linguagem quanto para disfagia.",
+      `Sim, para pacientes que não têm condição de se deslocar até o consultório. Já realizei ${formatarNumero(DOMICILIO_ATENDIMENTOS)} atendimentos domiciliares, a modalidade mais usada por pacientes idosos, acamados e por pacientes com disfagia. Atendo em domicílio tanto para linguagem quanto para disfagia.`,
   },
   {
     pergunta: "Quais cidades você atende?",

@@ -1,5 +1,5 @@
 import SiteContainer from "@/components/layout/SiteContainer";
-import { Reveal, StaggerItem, StaggerList } from "@/components/motion";
+import { CountUp, Reveal, StaggerItem, StaggerList } from "@/components/motion";
 import SectionLabel from "@/components/ui/SectionLabel";
 import GoldRule from "@/components/ui/GoldRule";
 import { NUMEROS } from "@/lib/perfil";
@@ -21,7 +21,7 @@ function NumeroCard({
   label,
   detalhe,
 }: {
-  valor: string;
+  valor: number;
   label: string;
   detalhe: string;
 }) {
@@ -36,7 +36,7 @@ function NumeroCard({
       {/* lining-nums: a Cormorant usa algarismos antigos por padrão e "111"
           sai parecendo numeral romano nos números grandes */}
       <p className="font-serif text-[2.1rem] font-light leading-none text-forest lining-nums tabular-nums sm:text-[2.4rem]">
-        {valor}
+        <CountUp valor={valor} />
       </p>
       <p className="mt-2 text-[0.95rem] font-normal leading-snug text-ink">
         {label}

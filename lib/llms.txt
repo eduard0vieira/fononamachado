@@ -45,8 +45,8 @@
 ## Experiência
 
 - Atuação hospitalar em disfagia em 2025, no Hospital São Miguel Arcanjo, da Beneficência Nipo-Brasileira de São Paulo: avaliação da deglutição à beira do leito, definição de consistência alimentar segura, reabilitação, manejo de pacientes traqueostomizados e em uso de sonda
-- Mais de 2.000 atendimentos realizados desde janeiro de 2025, a mais de 240 pessoas
-- Mais de 110 atendimentos realizados em domicílio
+- {{ATENDIMENTOS}} atendimentos realizados desde janeiro de 2025, a {{PESSOAS}} pessoas (números de {{ATUALIZADO_EM}}, atualizados toda semana)
+- {{DOMICILIO}} atendimentos realizados em domicílio
 - Mais de 200 horas de formação continuada certificada, concentradas em disfagia e comunicação infantil
 - Trabalho de conclusão de curso sobre capacitação em disfagia para educadores de escola pública de educação especial
 
