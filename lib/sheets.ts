@@ -19,6 +19,8 @@ export interface CadastroRow {
   termos: string;
   /** Coluna Q — "Como conheceu" */
   comoConheceu: string;
+  /** Coluna R — "Nota no WhatsApp" (Sim / Não) */
+  notaWhatsapp: string;
 }
 
 function getSheetId() {
@@ -53,7 +55,7 @@ export async function fetchSheetData(): Promise<CadastroRow[]> {
 
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: sheetId,
-    range: "Página1!A:Q",
+    range: "Página1!A:R",
   });
 
   const rawRows = res.data.values;
@@ -83,6 +85,7 @@ export async function fetchSheetData(): Promise<CadastroRow[]> {
       pagamento: cols[14] ?? "",
       termos: cols[15] ?? "",
       comoConheceu: cols[16] ?? "",
+      notaWhatsapp: cols[17] ?? "",
     });
   }
 
@@ -96,7 +99,7 @@ export async function appendSheetRow(row: CadastroRow): Promise<void> {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: "Página1!A:Q",
+    range: "Página1!A:R",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -118,6 +121,7 @@ export async function appendSheetRow(row: CadastroRow): Promise<void> {
           row.pagamento,
           row.termos,
           row.comoConheceu,
+          row.notaWhatsapp,
         ],
       ],
     },

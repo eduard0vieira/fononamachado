@@ -263,14 +263,19 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                 className={cn(fieldBase, errors.cpf && fieldError)}
               />
             </Field>
-            <Field label="Telefone / WhatsApp">
+            <Field
+              label="Telefone / WhatsApp"
+              required={data.notaWhatsapp === "sim"}
+              error={errors.telefone}
+            >
               <input
+                id="cad-telefone"
                 type="tel"
                 value={data.telefone}
                 onChange={(e) => handleMaskedInput("telefone", e.target.value)}
                 placeholder="(00) 00000-0000"
                 maxLength={15}
-                className={fieldBase}
+                className={cn(fieldBase, errors.telefone && fieldError)}
               />
             </Field>
           </div>
@@ -283,6 +288,52 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
               placeholder="seu@email.com"
               className={fieldBase}
             />
+          </Field>
+
+          <Field
+            label="Deseja receber a nota fiscal pelo WhatsApp?"
+            required
+            error={errors.notaWhatsapp}
+          >
+            <div
+              id="cad-notaWhatsapp"
+              role="radiogroup"
+              className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 scroll-mt-28"
+            >
+              {(
+                [
+                  ["sim", "Sim, quero receber no meu WhatsApp"],
+                  ["nao", "Não precisa enviar"],
+                ] as const
+              ).map(([valor, texto]) => {
+                const marcada = data.notaWhatsapp === valor;
+                return (
+                  <label
+                    key={valor}
+                    className={cn(
+                      "flex items-center gap-3 bg-cream border rounded-lg px-4 py-3.5 cursor-pointer transition-all duration-200",
+                      marcada
+                        ? "border-honey bg-honey/5"
+                        : errors.notaWhatsapp
+                          ? "border-red-300"
+                          : "border-cream-alt hover:border-honey-light",
+                    )}
+                  >
+                    <input
+                      type="radio"
+                      name="notaWhatsapp"
+                      value={valor}
+                      checked={marcada}
+                      onChange={() => setField("notaWhatsapp", valor)}
+                      className="w-4 h-4 accent-honey flex-shrink-0"
+                    />
+                    <span className="text-[0.86rem] text-ink leading-snug">
+                      {texto}
+                    </span>
+                  </label>
+                );
+              })}
+            </div>
           </Field>
         </div>
 

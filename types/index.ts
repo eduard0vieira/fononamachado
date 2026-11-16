@@ -63,6 +63,7 @@ export interface CadastroFormData {
   benNasc: string;
   comoConheceu: string;
   comoConheceuOutro: string;
+  notaWhatsapp: "" | "sim" | "nao";
   termosAceitos: boolean;
 }
 
@@ -79,6 +80,8 @@ export interface CadastroFormErrors {
   benNasc?: string;
   comoConheceu?: string;
   comoConheceuOutro?: string;
+  telefone?: string;
+  notaWhatsapp?: string;
   termos?: string;
 }
 

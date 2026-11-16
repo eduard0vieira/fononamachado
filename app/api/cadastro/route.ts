@@ -30,6 +30,7 @@ export async function POST(req: NextRequest) {
       pagamento: body.pagamento ?? "",
       termos: body.termos ?? "",
       comoConheceu: body.comoConheceu ?? "",
+      notaWhatsapp: body.notaWhatsapp ?? "",
     };
 
     await appendSheetRow(row);

@@ -39,6 +39,7 @@ const INITIAL_DATA: CadastroFormData = {
   benNasc: "",
   comoConheceu: "",
   comoConheceuOutro: "",
+  notaWhatsapp: "",
   termosAceitos: false,
 };
 
@@ -54,6 +55,8 @@ interface ViaCepResponse {
 const FIELD_ORDER: (keyof CadastroFormErrors)[] = [
   "nome",
   "cpf",
+  "telefone",
+  "notaWhatsapp",
   "cep",
   "rua",
   "numero",
@@ -156,6 +159,15 @@ export function useCadastroForm() {
     if (!isRequiredFilled(data.nome))
       newErrors.nome = "Por favor, informe o nome completo.";
     if (!isValidCpf(data.cpf)) newErrors.cpf = "CPF inválido.";
+    if (!data.notaWhatsapp)
+      newErrors.notaWhatsapp =
+        "Diga se deseja receber a nota fiscal pelo WhatsApp.";
+    else if (
+      data.notaWhatsapp === "sim" &&
+      data.telefone.replace(/\D/g, "").length < 10
+    )
+      newErrors.telefone =
+        "Informe o WhatsApp com DDD para receber a nota fiscal.";
     if (!isValidCep(data.cep)) newErrors.cep = "CEP inválido.";
     if (!isRequiredFilled(data.rua)) newErrors.rua = "Informe a rua.";
     if (!isRequiredFilled(data.numero)) newErrors.numero = "Informe o número.";
@@ -205,6 +217,7 @@ export function useCadastroForm() {
         benNome: data.benNome,
         benCpf: data.benCpf,
         benNasc: data.benNasc,
+        notaWhatsapp: data.notaWhatsapp === "sim" ? "Sim" : "Não",
         comoConheceu:
           data.comoConheceu === COMO_CONHECEU_OUTRO
             ? `Outro — ${data.comoConheceuOutro.trim()}`
