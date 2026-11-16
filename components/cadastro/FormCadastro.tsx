@@ -327,7 +327,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                       onChange={() => setField("notaWhatsapp", valor)}
                       className="w-4 h-4 accent-honey flex-shrink-0"
                     />
-                    <span className="text-[0.86rem] text-ink leading-snug">
+                    <span className="text-[0.86rem] font-light text-ink-soft leading-snug">
                       {texto}
                     </span>
                   </label>
@@ -444,7 +444,11 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                 type="date"
                 value={data.benNasc}
                 onChange={(e) => setField("benNasc", e.target.value)}
-                className={cn(fieldBase, errors.benNasc && fieldError)}
+                className={cn(
+                  fieldBase,
+                  !data.benNasc && "text-gray-400",
+                  errors.benNasc && fieldError,
+                )}
               />
             </Field>
           </div>
@@ -484,7 +488,7 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
                   onChange={() => setField("comoConheceu", opcao)}
                   className="w-4 h-4 accent-honey flex-shrink-0"
                 />
-                <span className="text-[0.86rem] text-ink leading-snug">
+                <span className="text-[0.86rem] font-light text-ink-soft leading-snug">
                   {opcao}
                 </span>
               </label>
