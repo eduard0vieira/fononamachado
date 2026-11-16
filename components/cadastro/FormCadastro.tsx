@@ -545,7 +545,12 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
           <input
             type="checkbox"
             checked={data.termosAceitos}
-            onChange={(e) => setField("termosAceitos", e.target.checked)}
+            onChange={(e) => {
+              // Toque direto no quadradinho: o onChange do React dispara antes
+              // do preventDefault do label. Sem os termos abertos, não aceita.
+              if (!termosLidos) return;
+              setField("termosAceitos", e.target.checked);
+            }}
             aria-disabled={!termosLidos}
             className={cn(
               "mt-0.5 w-5 h-5 accent-honey flex-shrink-0",
