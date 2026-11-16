@@ -29,6 +29,7 @@ export async function POST(req: NextRequest) {
       benNasc: body.benNasc ?? "",
       pagamento: body.pagamento ?? "",
       termos: body.termos ?? "",
+      comoConheceu: body.comoConheceu ?? "",
     };
 
     await appendSheetRow(row);

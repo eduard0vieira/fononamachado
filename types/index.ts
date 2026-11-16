@@ -47,8 +47,6 @@ export interface ContatoItem {
 
 // ─── Cadastro Form ───────────────────────────────────────────────────────────
 
-export type PaymentMode = "sessao" | "mensal" | "";
-
 export interface CadastroFormData {
   nome: string;
   cpf: string;
@@ -63,8 +61,8 @@ export interface CadastroFormData {
   benNome: string;
   benCpf: string;
   benNasc: string;
-  pagamento: PaymentMode;
-  diaPreferido: number | null;
+  comoConheceu: string;
+  comoConheceuOutro: string;
   termosAceitos: boolean;
 }
 
@@ -79,8 +77,8 @@ export interface CadastroFormErrors {
   benNome?: string;
   benCpf?: string;
   benNasc?: string;
-  pagamento?: string;
-  diaPreferido?: string;
+  comoConheceu?: string;
+  comoConheceuOutro?: string;
   termos?: string;
 }
 

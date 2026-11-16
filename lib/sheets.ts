@@ -17,6 +17,8 @@ export interface CadastroRow {
   benNasc: string;
   pagamento: string;
   termos: string;
+  /** Coluna Q — "Como conheceu" */
+  comoConheceu: string;
 }
 
 function getSheetId() {
@@ -51,7 +53,7 @@ export async function fetchSheetData(): Promise<CadastroRow[]> {
 
   const res = await sheets.spreadsheets.values.get({
     spreadsheetId: sheetId,
-    range: "Página1!A:P",
+    range: "Página1!A:Q",
   });
 
   const rawRows = res.data.values;
@@ -80,6 +82,7 @@ export async function fetchSheetData(): Promise<CadastroRow[]> {
       benNasc: cols[13] ?? "",
       pagamento: cols[14] ?? "",
       termos: cols[15] ?? "",
+      comoConheceu: cols[16] ?? "",
     });
   }
 
@@ -93,7 +96,7 @@ export async function appendSheetRow(row: CadastroRow): Promise<void> {
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: sheetId,
-    range: "Página1!A:P",
+    range: "Página1!A:Q",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -114,6 +117,7 @@ export async function appendSheetRow(row: CadastroRow): Promise<void> {
           row.benNasc,
           row.pagamento,
           row.termos,
+          row.comoConheceu,
         ],
       ],
     },

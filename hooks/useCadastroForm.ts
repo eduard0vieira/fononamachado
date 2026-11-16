@@ -1,15 +1,27 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback } from "react";
 import type {
   CadastroFormData,
   CadastroFormErrors,
-  PaymentMode,
   ScriptResponse,
 } from "@/types";
 import { maskCpf, maskPhone, maskCep } from "@/lib/masks";
 import { isRequiredFilled, isValidCpf, isValidCep } from "@/lib/validators";
 import { VIACEP_URL } from "@/lib/constants";
+
+// Opções da pergunta "Como conheceu a Fono Nathália Machado".
+// O texto da opção é o que vai para a planilha.
+export const COMO_CONHECEU_OUTRO = "Outro";
+export const COMO_CONHECEU_OPCOES = [
+  "Indicação de alguém (amigo, familiar, outro paciente)",
+  "Indicação de profissional (médico, escola, outro terapeuta)",
+  "Instagram",
+  "Pesquisa no Google",
+  "Google Maps",
+  "ChatGPT ou outra inteligência artificial",
+  COMO_CONHECEU_OUTRO,
+] as const;
 
 const INITIAL_DATA: CadastroFormData = {
   nome: "",
@@ -25,8 +37,8 @@ const INITIAL_DATA: CadastroFormData = {
   benNome: "",
   benCpf: "",
   benNasc: "",
-  pagamento: "",
-  diaPreferido: null,
+  comoConheceu: "",
+  comoConheceuOutro: "",
   termosAceitos: false,
 };
 
@@ -50,8 +62,8 @@ const FIELD_ORDER: (keyof CadastroFormErrors)[] = [
   "benNome",
   "benCpf",
   "benNasc",
-  "pagamento",
-  "diaPreferido",
+  "comoConheceu",
+  "comoConheceuOutro",
   "termos",
 ];
 
@@ -79,7 +91,9 @@ export function useCadastroForm() {
   const [errors, setErrors] = useState<CadastroFormErrors>({});
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [benMesmoResponsavel, setBenMesmoResponsavel] = useState(false);
+  // Vira true quando a pessoa abre os termos (quadro expansível ou página dedicada).
+  // Só depois disso o checkbox de aceite pode ser marcado.
+  const [termosLidos, setTermosLidos] = useState(false);
 
   const setField = useCallback(
     <K extends keyof CadastroFormData>(
@@ -134,43 +148,7 @@ export function useCadastroForm() {
     [setField],
   );
 
-  const handlePaymentChange = useCallback(
-    (mode: PaymentMode) => {
-      setField("pagamento", mode);
-      if (mode !== "mensal") setField("diaPreferido", null);
-    },
-    [setField],
-  );
-
-  const copyResponsavelToBen = useCallback(() => {
-    setData((prev) => ({
-      ...prev,
-      benNome: prev.nome,
-      benCpf: prev.cpf,
-    }));
-    setErrors((prev) => ({
-      ...prev,
-      benNome: undefined,
-      benCpf: undefined,
-    }));
-  }, []);
-
-  const toggleBenMesmoResponsavel = useCallback((checked: boolean) => {
-    setBenMesmoResponsavel(checked);
-    if (!checked) {
-      setData((prev) => ({ ...prev, benNome: "", benCpf: "" }));
-    }
-  }, []);
-
-  // Mantém benNome/benCpf sincronizados enquanto o checkbox estiver ativo
-  useEffect(() => {
-    if (!benMesmoResponsavel) return;
-    setData((prev) => {
-      if (prev.benNome === prev.nome && prev.benCpf === prev.cpf) return prev;
-      return { ...prev, benNome: prev.nome, benCpf: prev.cpf };
-    });
-    setErrors((prev) => ({ ...prev, benNome: undefined, benCpf: undefined }));
-  }, [benMesmoResponsavel, data.nome, data.cpf]); // eslint-disable-line react-hooks/exhaustive-deps
+  const marcarTermosLidos = useCallback(() => setTermosLidos(true), []);
 
   const validate = useCallback((): CadastroFormErrors => {
     const newErrors: CadastroFormErrors = {};
@@ -189,11 +167,13 @@ export function useCadastroForm() {
       newErrors.benCpf = "CPF do beneficiário inválido.";
     if (!data.benNasc)
       newErrors.benNasc = "Informe a data de nascimento.";
-    if (!data.pagamento)
-      newErrors.pagamento = "Selecione uma modalidade de pagamento.";
-    if (data.pagamento === "mensal" && !data.diaPreferido)
-      newErrors.diaPreferido =
-        "Escolha o dia preferido para o pagamento mensal.";
+    if (!data.comoConheceu)
+      newErrors.comoConheceu = "Por favor, conte como nos conheceu.";
+    else if (
+      data.comoConheceu === COMO_CONHECEU_OUTRO &&
+      !isRequiredFilled(data.comoConheceuOutro)
+    )
+      newErrors.comoConheceuOutro = "Conte para nós onde nos conheceu.";
     if (!data.termosAceitos)
       newErrors.termos = "Você precisa aceitar os termos para continuar.";
 
@@ -210,11 +190,6 @@ export function useCadastroForm() {
         return;
       }
 
-      const pagamentoStr =
-        data.pagamento === "mensal"
-          ? `Mensal (dia ${data.diaPreferido ?? "não definido"})`
-          : "Por sessão";
-
       const payload = {
         timestamp: new Date().toLocaleString("pt-BR"),
         nome: data.nome,
@@ -230,7 +205,11 @@ export function useCadastroForm() {
         benNome: data.benNome,
         benCpf: data.benCpf,
         benNasc: data.benNasc,
-        pagamento: pagamentoStr,
+        comoConheceu:
+          data.comoConheceu === COMO_CONHECEU_OUTRO
+            ? `Outro — ${data.comoConheceuOutro.trim()}`
+            : data.comoConheceu,
+        pagamento: "",
         termos: "Aceito",
       };
 
@@ -264,13 +243,11 @@ export function useCadastroForm() {
     errors,
     submitting,
     submitted,
-    benMesmoResponsavel,
+    termosLidos,
     setField,
     handleMaskedInput,
     handleCepChange,
-    handlePaymentChange,
-    copyResponsavelToBen,
-    toggleBenMesmoResponsavel,
+    marcarTermosLidos,
     handleSubmit,
   };
 }

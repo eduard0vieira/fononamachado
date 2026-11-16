@@ -1,20 +1,25 @@
 "use client";
 
-import { useState } from "react";
 import {
   TermoSectionsBody,
   TermoClause17Section,
 } from "@/components/termo/TermoSections";
 import { cn } from "@/lib/utils";
 
-export default function CadastroTermosExpandable() {
-  const [open, setOpen] = useState(false);
-
+export default function CadastroTermosExpandable({
+  open,
+  onToggle,
+}: {
+  open: boolean;
+  onToggle: () => void;
+}) {
   return (
-    <div className="mb-6 overflow-hidden rounded-xl border border-forest/10 bg-cream/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
+    <div
+      id="cad-termos-quadro"
+      className="mb-6 scroll-mt-28 overflow-hidden rounded-xl border border-forest/10 bg-cream/40 shadow-[inset_0_1px_0_rgba(255,255,255,0.5)]">
       <button
         type="button"
-        onClick={() => setOpen((v) => !v)}
+        onClick={onToggle}
         aria-expanded={open}
         className={cn(
           "flex w-full items-center justify-between gap-3 px-5 py-4 text-left transition-colors",

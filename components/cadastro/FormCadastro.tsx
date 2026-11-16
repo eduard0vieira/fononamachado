@@ -1,7 +1,11 @@
 "use client";
 
-import { useEffect } from "react";
-import { useCadastroForm } from "@/hooks/useCadastroForm";
+import { useEffect, useState } from "react";
+import {
+  useCadastroForm,
+  COMO_CONHECEU_OPCOES,
+  COMO_CONHECEU_OUTRO,
+} from "@/hooks/useCadastroForm";
 import CadastroTermosExpandable from "@/components/cadastro/CadastroTermosExpandable";
 import { cn } from "@/lib/utils";
 
@@ -97,7 +101,7 @@ const UsersIcon = () => (
   </svg>
 );
 
-const CardIcon = () => (
+const HeartIcon = () => (
   <svg
     width="18"
     height="18"
@@ -108,8 +112,7 @@ const CardIcon = () => (
     strokeLinecap="round"
     strokeLinejoin="round"
   >
-    <rect x="1" y="4" width="22" height="16" rx="2" />
-    <line x1="1" y1="10" x2="23" y2="10" />
+    <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z" />
   </svg>
 );
 
@@ -152,14 +155,40 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
     errors,
     submitting,
     submitted,
-    benMesmoResponsavel,
+    termosLidos,
     setField,
     handleMaskedInput,
     handleCepChange,
-    handlePaymentChange,
-    toggleBenMesmoResponsavel,
+    marcarTermosLidos,
     handleSubmit,
   } = useCadastroForm();
+
+  const [termosAbertos, setTermosAbertos] = useState(false);
+  const [avisoTermos, setAvisoTermos] = useState(false);
+
+  const alternarTermos = () => {
+    setTermosAbertos((v) => !v);
+    marcarTermosLidos();
+  };
+
+  const abrirTermosPeloAviso = () => {
+    setAvisoTermos(false);
+    setTermosAbertos(true);
+    marcarTermosLidos();
+    document
+      .getElementById("cad-termos-quadro")
+      ?.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // Fecha o aviso com Esc
+  useEffect(() => {
+    if (!avisoTermos) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setAvisoTermos(false);
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [avisoTermos]);
 
   useEffect(() => {
     if (submitted) onSubmitted?.();
@@ -331,91 +360,33 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
       {/* 2. Beneficiário */}
       <SectionCard
         title="Paciente do Atendimento"
-        subtitle="Quem irá receber o atendimento fonoaudiológico. Pode ser o próprio responsável financeiro ou outra pessoa."
+        subtitle="Quem irá receber o atendimento fonoaudiológico."
         icon={<UsersIcon />}
       >
-        {/* Checkbox "mesmo responsável" */}
-        <label
-          className={cn(
-            "flex items-center gap-3.5 rounded-xl border-2 px-5 py-4 cursor-pointer transition-all duration-200 mb-6",
-            benMesmoResponsavel
-              ? "border-forest bg-forest/5"
-              : "border-cream-alt bg-cream hover:border-honey hover:bg-honey/5",
-          )}
-        >
-          <div
-            className={cn(
-              "relative flex h-5 w-5 shrink-0 items-center justify-center rounded border-2 transition-all duration-200",
-              benMesmoResponsavel
-                ? "border-forest bg-forest"
-                : "border-stone-300 bg-white",
-            )}
-          >
-            <input
-              type="checkbox"
-              checked={benMesmoResponsavel}
-              onChange={(e) => toggleBenMesmoResponsavel(e.target.checked)}
-              className="absolute inset-0 opacity-0 cursor-pointer"
-            />
-            {benMesmoResponsavel && (
-              <svg
-                width="11"
-                height="11"
-                viewBox="0 0 12 12"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                aria-hidden="true"
-              >
-                <polyline points="2,6 5,9 10,3" />
-              </svg>
-            )}
-          </div>
-          <div className="flex flex-col">
-            <span
-              className={cn(
-                "text-[0.88rem] font-medium leading-snug transition-colors duration-200",
-                benMesmoResponsavel ? "text-forest" : "text-ink",
-              )}
-            >
-              O responsável financeiro é o paciente
-            </span>
-            <span className="text-[0.75rem] text-ink-muted font-light mt-0.5">
-              Nome e CPF serão preenchidos automaticamente
-            </span>
-          </div>
-        </label>
-
         <div className="grid gap-4">
-          {!benMesmoResponsavel && (
-            <Field label="Nome completo do paciente" required error={errors.benNome}>
+          <Field label="Nome completo do paciente" required error={errors.benNome}>
+            <input
+              id="cad-benNome"
+              type="text"
+              value={data.benNome}
+              onChange={(e) => setField("benNome", e.target.value)}
+              placeholder="Nome de quem receberá o atendimento"
+              className={cn(fieldBase, errors.benNome && fieldError)}
+            />
+          </Field>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <Field label="CPF do paciente" required error={errors.benCpf}>
               <input
-                id="cad-benNome"
+                id="cad-benCpf"
                 type="text"
-                value={data.benNome}
-                onChange={(e) => setField("benNome", e.target.value)}
-                placeholder="Nome de quem receberá o atendimento"
-                className={cn(fieldBase, errors.benNome && fieldError)}
+                value={data.benCpf}
+                onChange={(e) => handleMaskedInput("benCpf", e.target.value)}
+                placeholder="000.000.000-00"
+                maxLength={14}
+                className={cn(fieldBase, errors.benCpf && fieldError)}
               />
             </Field>
-          )}
-
-          <div className={cn("grid gap-4", !benMesmoResponsavel && "grid-cols-1 sm:grid-cols-2")}>
-            {!benMesmoResponsavel && (
-              <Field label="CPF do paciente" required error={errors.benCpf}>
-                <input
-                  id="cad-benCpf"
-                  type="text"
-                  value={data.benCpf}
-                  onChange={(e) => handleMaskedInput("benCpf", e.target.value)}
-                  placeholder="000.000.000-00"
-                  maxLength={14}
-                  className={cn(fieldBase, errors.benCpf && fieldError)}
-                />
-              </Field>
-            )}
             <Field label="Data de nascimento do paciente" required error={errors.benNasc}>
               <input
                 id="cad-benNasc"
@@ -429,99 +400,86 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
         </div>
       </SectionCard>
 
-      {/* 3. Pagamento */}
+      {/* 3. Como conheceu */}
       <SectionCard
-        title="Modalidade de Pagamento"
-        subtitle="Escolha como prefere organizar os pagamentos. Aceitamos Pix, dinheiro e cartão."
-        icon={<CardIcon />}
+        title="Como conheceu a Fono Nathália Machado"
+        subtitle="Escolha uma opção."
+        icon={<HeartIcon />}
       >
-        <div id="cad-pagamento" className="flex flex-col gap-3 scroll-mt-28">
-          {(["sessao", "mensal"] as const).map((mode) => (
-            <label
-              key={mode}
-              className={cn(
-                "flex items-start gap-3.5 bg-cream border rounded-lg px-4 py-4 cursor-pointer transition-all duration-200",
-                data.pagamento === mode
-                  ? "border-honey bg-honey/5"
-                  : "border-cream-alt hover:border-honey-light",
-              )}
-            >
-              <input
-                type="radio"
-                name="pagamento"
-                value={mode}
-                checked={data.pagamento === mode}
-                onChange={() => handlePaymentChange(mode)}
-                className="mt-0.5 w-4 h-4 accent-honey"
-              />
-              <div>
-                <p className="text-[0.88rem] font-medium text-ink mb-0.5">
-                  {mode === "sessao"
-                    ? "Pagamento por sessão"
-                    : "Pagamento mensal"}
-                </p>
-                <p className="text-[0.78rem] text-ink-muted font-light leading-[1.5]">
-                  {mode === "sessao"
-                    ? "Cada sessão paga individualmente, sempre até o dia do atendimento. Sem compromisso mensal."
-                    : "Pagamento em data fixa todo mês. Escolha o dia que funciona melhor para você."}
-                </p>
-              </div>
-            </label>
-          ))}
+        <div
+          id="cad-comoConheceu"
+          role="radiogroup"
+          className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 scroll-mt-28"
+        >
+          {COMO_CONHECEU_OPCOES.map((opcao) => {
+            const marcada = data.comoConheceu === opcao;
+            return (
+              <label
+                key={opcao}
+                className={cn(
+                  "flex items-center gap-3 bg-cream border rounded-lg px-4 py-3.5 cursor-pointer transition-all duration-200",
+                  marcada
+                    ? "border-honey bg-honey/5"
+                    : errors.comoConheceu
+                      ? "border-red-300"
+                      : "border-cream-alt hover:border-honey-light",
+                )}
+              >
+                <input
+                  type="radio"
+                  name="comoConheceu"
+                  value={opcao}
+                  checked={marcada}
+                  onChange={() => setField("comoConheceu", opcao)}
+                  className="w-4 h-4 accent-honey flex-shrink-0"
+                />
+                <span className="text-[0.86rem] text-ink leading-snug">
+                  {opcao}
+                </span>
+              </label>
+            );
+          })}
         </div>
-
-        {data.pagamento === "mensal" && (
-          <div
-            id="cad-diaPreferido"
-            className={cn(
-              "mt-4 p-4 bg-cream border rounded-lg scroll-mt-28",
-              errors.diaPreferido ? "border-red-400" : "border-honey-light",
-            )}
-          >
-            <p className="text-[0.72rem] font-medium tracking-[0.14em] uppercase text-ink-muted mb-3 block">
-              Escolha o dia preferido para pagamento mensal
-            </p>
-            <div className="flex flex-wrap gap-2">
-              {Array.from({ length: 28 }, (_, i) => i + 1).map((dia) => (
-                <button
-                  key={dia}
-                  type="button"
-                  onClick={() => setField("diaPreferido", dia)}
-                  className={cn(
-                    "w-9 h-9 rounded-full border text-[0.82rem] font-normal transition-all duration-200 flex items-center justify-center",
-                    data.diaPreferido === dia
-                      ? "bg-honey border-honey text-white font-medium"
-                      : "bg-white border-cream-alt text-ink-soft hover:border-honey hover:text-honey",
-                  )}
-                >
-                  {dia}
-                </button>
-              ))}
-            </div>
-            {data.diaPreferido && (
-              <p className="mt-2.5 text-[0.8rem] text-forest font-normal">
-                Dia {data.diaPreferido} de cada mês
-              </p>
-            )}
-            {errors.diaPreferido && (
-              <p className="mt-2.5 text-[0.72rem] text-red-500">
-                {errors.diaPreferido}
-              </p>
-            )}
-          </div>
+        {errors.comoConheceu && (
+          <p className="text-[0.72rem] text-red-500 mt-2">{errors.comoConheceu}</p>
         )}
 
-        {errors.pagamento && (
-          <p className="text-[0.72rem] text-red-500 mt-2">{errors.pagamento}</p>
+        {data.comoConheceu === COMO_CONHECEU_OUTRO && (
+          <div className="mt-4">
+            <Field
+              label="Conte para nós onde nos conheceu"
+              required
+              error={errors.comoConheceuOutro}
+            >
+              <input
+                id="cad-comoConheceuOutro"
+                type="text"
+                value={data.comoConheceuOutro}
+                onChange={(e) => setField("comoConheceuOutro", e.target.value)}
+                placeholder="Ex.: Facebook, panfleto, evento…"
+                maxLength={120}
+                autoFocus
+                className={cn(fieldBase, errors.comoConheceuOutro && fieldError)}
+              />
+            </Field>
+          </div>
         )}
       </SectionCard>
 
       {/* 4. Termos */}
       <SectionCard title="Aceite dos Termos" icon={<DocIcon />}>
-        <CadastroTermosExpandable />
+        <CadastroTermosExpandable open={termosAbertos} onToggle={alternarTermos} />
 
         <label
           id="cad-termos"
+          onClick={(e) => {
+            // Clique no link "página dedicada" não conta como tentativa de aceite
+            if ((e.target as HTMLElement).closest("a")) return;
+            if (!termosLidos) {
+              e.preventDefault();
+              setAvisoTermos(true);
+            }
+          }}
           className={cn(
             "flex items-start gap-3.5 p-5 rounded-lg cursor-pointer transition-all duration-200 border scroll-mt-28",
             errors.termos
@@ -533,7 +491,11 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
             type="checkbox"
             checked={data.termosAceitos}
             onChange={(e) => setField("termosAceitos", e.target.checked)}
-            className="mt-0.5 w-5 h-5 accent-honey flex-shrink-0"
+            aria-disabled={!termosLidos}
+            className={cn(
+              "mt-0.5 w-5 h-5 accent-honey flex-shrink-0",
+              !termosLidos && "opacity-50",
+            )}
           />
           <p className="text-[0.85rem] font-light text-ink-soft leading-[1.6]">
             Declaro que li e estou de acordo com os{" "}
@@ -545,6 +507,8 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
               href="/termo"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={marcarTermosLidos}
+              onAuxClick={marcarTermosLidos}
               className="text-forest underline underline-offset-2 hover:text-forest-light"
             >
               página dedicada
@@ -553,10 +517,61 @@ export default function FormCadastro({ onSubmitted }: { onSubmitted?: () => void
             fornecidas neste cadastro são verdadeiras.
           </p>
         </label>
+        {!termosLidos && (
+          <p className="text-[0.75rem] text-ink-muted font-light mt-2">
+            Para marcar o aceite, abra antes os termos no quadro acima ou na
+            página dedicada.
+          </p>
+        )}
         {errors.termos && (
           <p className="text-[0.72rem] text-red-500 mt-2">{errors.termos}</p>
         )}
       </SectionCard>
+
+      {avisoTermos && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-ink/50 px-5"
+          onClick={() => setAvisoTermos(false)}
+        >
+          <div
+            role="alertdialog"
+            aria-modal="true"
+            aria-labelledby="aviso-termos-titulo"
+            className="w-full max-w-sm rounded-xl bg-white px-7 py-7 text-center shadow-card"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <div className="mb-3 flex justify-center text-honey">
+              <DocIcon />
+            </div>
+            <h2
+              id="aviso-termos-titulo"
+              className="font-serif text-[1.35rem] font-medium text-forest mb-2"
+            >
+              Leia os termos antes de aceitar
+            </h2>
+            <p className="text-[0.88rem] font-light text-ink-soft leading-[1.6] mb-6">
+              Você precisa ler os Termos de Atendimento para poder aceitá-los.
+            </p>
+            <div className="flex flex-col gap-2.5">
+              <button
+                type="button"
+                onClick={abrirTermosPeloAviso}
+                autoFocus
+                className="w-full rounded-lg bg-[#8FAA8A] py-3 text-[0.82rem] font-medium uppercase tracking-[0.12em] text-white transition-colors hover:bg-[#7a9675]"
+              >
+                Abrir os termos
+              </button>
+              <button
+                type="button"
+                onClick={() => setAvisoTermos(false)}
+                className="w-full rounded-lg border border-cream-alt py-3 text-[0.82rem] font-medium uppercase tracking-[0.12em] text-ink-muted transition-colors hover:border-honey hover:text-honey"
+              >
+                Fechar
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       <button
         type="submit"
