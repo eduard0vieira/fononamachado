@@ -10,27 +10,27 @@ import type { FaltaItem } from "@/types";
 const FALTAS: FaltaItem[] = [
   {
     number: 1,
-    text: "Cancelamentos com mínimo 12h de antecedência não são cobrados.",
+    text: "A mensalidade é paga antes, até o meio-dia do dia útil anterior à primeira sessão do mês.",
   },
   {
     number: 2,
-    text: "Cancelamentos fora desse prazo são cobrados normalmente.",
+    text: "Não vai poder vir? Avise até o meio-dia do dia útil anterior: a sessão é reposta no mesmo mês, conforme a vaga.",
   },
   {
     number: 3,
-    text: "Faltas sem aviso não geram reposição e o tempo perdido por atraso não é compensado.",
+    text: "Depois desse prazo, a sessão só é remarcada ou descontada com atestado médico, enviado em até 3 dias.",
   },
   {
     number: 4,
-    text: "Reposições em até 30 dias; sem horário disponível, o valor vira crédito para o mês seguinte.",
+    text: "Se a fono precisar desmarcar, a sessão é reposta ou descontada na mensalidade seguinte. O tempo perdido por atraso não é compensado.",
   },
   {
     number: 5,
-    text: "Ausência prolongada: pausa de até 30 dias mantendo a vaga, com aviso de 30 dias. Disponível 1x por ano.",
+    text: "Sem o pagamento no prazo, o horário fixo é liberado para a lista de espera.",
   },
   {
     number: 6,
-    text: "A partir de 2 faltas consecutivas sem aviso, o paciente poderá perder sua vaga e horário preferencial.",
+    text: "Para pausar ou encerrar, avise até o dia 20 do mês anterior. Três semanas seguidas sem vir, sem atestado, liberam o horário.",
   },
 ];
 

@@ -16,6 +16,8 @@ import {
   INSTAGRAM_HANDLE,
   EMAIL,
   PHONE_DISPLAY,
+  CENTRAL_WHATSAPP_URL,
+  CENTRAL_PHONE_DISPLAY,
 } from "@/lib/constants";
 
 const CONTATOS: ContatoItem[] = [
@@ -27,8 +29,16 @@ const CONTATOS: ContatoItem[] = [
   },
   {
     kind: "phone",
-    label: PHONE_DISPLAY,
+    label: `${PHONE_DISPLAY}
+Nathália: primeiro contato`,
     href: WHATSAPP_URL,
+    isExternal: true,
+  },
+  {
+    kind: "phone",
+    label: `${CENTRAL_PHONE_DISPLAY}
+Central de Atendimento: agenda e pagamentos`,
+    href: CENTRAL_WHATSAPP_URL,
     isExternal: true,
   },
   {

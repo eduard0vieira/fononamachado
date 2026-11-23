@@ -30,6 +30,15 @@ export const MAPS_EMBED_SRC =
 
 export const EMAIL = "fononamachado@gmail.com";
 export const PHONE_DISPLAY = "(15) 99666-1683";
+
+/**
+ * Central de Atendimento (desde 15/11/2026): o número da Nathália fica para o
+ * primeiro contato (acolher a família); agenda, pagamentos, comprovantes,
+ * atestados e nota fiscal seguem pela Central.
+ */
+export const CENTRAL_WHATSAPP_NUMBER = "5515998487151";
+export const CENTRAL_WHATSAPP_URL = `https://wa.me/${CENTRAL_WHATSAPP_NUMBER}`;
+export const CENTRAL_PHONE_DISPLAY = "(15) 99848-7151";
 export const ADDRESS = "R. Miguel Terra, 385 — Centro\nSão Miguel Arcanjo — SP";
 export const CRFA = "CRFa 2-23700";
 

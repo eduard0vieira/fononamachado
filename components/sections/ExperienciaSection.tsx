@@ -93,7 +93,7 @@ export default function ExperienciaSection() {
                 reconhecer sinais de engasgo e a oferecer alimentação segura.
               </p>
               <p className="mb-3 font-light text-[0.92rem] leading-[1.75] text-ink-muted sm:text-base sm:leading-[1.9]">
-                Em 2025 integrei o corpo assistencial do{" "}
+                Atuo também no corpo assistencial do{" "}
                 <strong className="font-normal text-ink">
                   Hospital São Miguel Arcanjo
                 </strong>

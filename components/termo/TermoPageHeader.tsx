@@ -37,7 +37,7 @@ export default function TermoPageHeader() {
           </h1>
           <GoldRule className="mx-auto my-5 sm:my-6" />
           <p className="text-[0.72rem] font-medium uppercase tracking-[0.18em] text-ink-muted">
-            Última atualização: Março de 2026
+            Última atualização: Novembro de 2026
           </p>
           <p className="mt-4 text-[0.8125rem] font-light tracking-wide text-ink-muted">
             Nathália Machado Vieira de Oliveira · CRFa 2-23700
